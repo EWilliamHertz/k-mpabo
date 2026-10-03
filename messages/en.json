@@ -1,0 +1,37 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "boende": "Accommodation",
+    "garden": "The Farm",
+    "attGora": "Things to Do",
+    "kontakt": "Contact"
+  },
+  "Home": {
+    "title": "Welcome to Kämpabo",
+    "subtitle": "A peaceful oasis in the heart of Småland",
+    "cta": "View Accommodations"
+  },
+  "Boende": {
+    "title": "Our Accommodations",
+    "description": "Choose between our two modern and fully equipped vacation rentals.",
+    "small": "Small Cabin (4 beds)",
+    "large": "Large Villa (8 beds)",
+    "both": "Entire Farm (12 beds)"
+  },
+  "AttGora": {
+    "title": "Things to Do Nearby",
+    "description": "Discover Småland's nature and exciting activities.",
+    "isaberg": "Isaberg Mountain Resort",
+    "highChaparral": "High Chaparral",
+    "storeMosse": "Store Mosse National Park",
+    "anderstorp": "Anderstorp Raceway"
+  },
+  "Footer": {
+    "address": "Kämpabo 2 B, 334 91 Anderstorp, Sweden"
+  },
+  "CookieConsent": {
+    "message": "We use cookies to improve your experience. No tracking cookies are activated without your consent.",
+    "accept": "Accept all",
+    "decline": "Essential only"
+  }
+}

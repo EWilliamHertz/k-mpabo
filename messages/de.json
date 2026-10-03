@@ -1,0 +1,37 @@
+{
+  "Navigation": {
+    "home": "Startseite",
+    "boende": "Unterkunft",
+    "garden": "Der Hof",
+    "attGora": "Aktivitäten",
+    "kontakt": "Kontakt"
+  },
+  "Home": {
+    "title": "Willkommen in Kämpabo",
+    "subtitle": "Eine friedliche Oase im Herzen von Småland",
+    "cta": "Unterkünfte ansehen"
+  },
+  "Boende": {
+    "title": "Unsere Unterkünfte",
+    "description": "Wählen Sie zwischen unseren zwei modernen und voll ausgestatteten Ferienhäusern.",
+    "small": "Kleines Haus (4 Betten)",
+    "large": "Großes Haus (8 Betten)",
+    "both": "Der ganze Hof (12 Betten)"
+  },
+  "AttGora": {
+    "title": "Aktivitäten in der Nähe",
+    "description": "Entdecken Sie die Natur Smålands und aufregende Aktivitäten.",
+    "isaberg": "Isaberg Mountain Resort",
+    "highChaparral": "High Chaparral",
+    "storeMosse": "Nationalpark Store Mosse",
+    "anderstorp": "Anderstorp Raceway"
+  },
+  "Footer": {
+    "address": "Kämpabo 2 B, 334 91 Anderstorp, Schweden"
+  },
+  "CookieConsent": {
+    "message": "Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Ohne Ihre Zustimmung werden keine Tracking-Cookies aktiviert.",
+    "accept": "Alle akzeptieren",
+    "decline": "Nur notwendige"
+  }
+}

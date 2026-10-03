@@ -1,0 +1,37 @@
+{
+  "Navigation": {
+    "home": "Hem",
+    "boende": "Boende",
+    "garden": "Gården",
+    "attGora": "Att göra",
+    "kontakt": "Kontakt"
+  },
+  "Home": {
+    "title": "Välkommen till Kämpabo",
+    "subtitle": "En fridfull oas i hjärtat av Småland",
+    "cta": "Se våra boenden"
+  },
+  "Boende": {
+    "title": "Våra Boenden",
+    "description": "Välj mellan våra två moderna och fullt utrustade boenden.",
+    "small": "Mindre Boendet (4 bäddar)",
+    "large": "Större Boendet (8 bäddar)",
+    "both": "Hela Gården (12 bäddar)"
+  },
+  "AttGora": {
+    "title": "Att Göra i Närheten",
+    "description": "Upptäck Smålands natur och spännande aktiviteter.",
+    "isaberg": "Isaberg Mountain Resort",
+    "highChaparral": "High Chaparral",
+    "storeMosse": "Store Mosse Nationalpark",
+    "anderstorp": "Anderstorp Raceway"
+  },
+  "Footer": {
+    "address": "Kämpabo 2 B, 334 91 Anderstorp"
+  },
+  "CookieConsent": {
+    "message": "Vi använder cookies för att förbättra din upplevelse. Inga spårningscookies aktiveras utan ditt medgivande.",
+    "accept": "Acceptera alla",
+    "decline": "Endast nödvändiga"
+  }
+}
