@@ -23,7 +23,7 @@ export default function StoreMosse() {
       >
         <h1 className="text-4xl md:text-6xl font-serif mb-6">{t('storeMosse')}</h1>
         <div className="relative h-[60vh] w-full rounded-2xl overflow-hidden mb-12">
-          <Image src="/images/nature.jpg" alt={t('storeMosse')} fill className="object-cover" priority />
+          <Image src="/images/store-mosse-real.jpg" alt={t('storeMosse')} fill className="object-cover" priority />
         </div>
         
         <div className="prose prose-stone prose-lg max-w-none">

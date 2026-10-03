@@ -9,10 +9,10 @@ export default function AttGora() {
   const t = useTranslations('AttGora');
 
   const activities = [
-    { slug: 'store-mosse', title: t('storeMosse'), desc: 'Upplev södra Sveriges största myrområde.', img: '/images/nature.jpg' },
-    { slug: 'isaberg', title: t('isaberg'), desc: 'Skidåkning, MTB, äventyrsbana och rodel.', img: '/images/nature.jpg' },
-    { slug: 'high-chaparral', title: t('highChaparral'), desc: 'Vilda västern-parken för hela familjen.', img: '/images/nature.jpg' },
-    { slug: 'anderstorp', title: t('anderstorp'), desc: 'Skandinaviens mest kända racerbana.', img: '/images/nature.jpg' }
+    { slug: 'store-mosse', title: t('storeMosse'), desc: 'Upplev södra Sveriges största myrområde.', img: '/images/store-mosse-real.jpg' },
+    { slug: 'isaberg', title: t('isaberg'), desc: 'Skidåkning, MTB, äventyrsbana och rodel.', img: '/images/isaberg-real.jpg' },
+    { slug: 'high-chaparral', title: t('highChaparral'), desc: 'Vilda västern-parken för hela familjen.', img: '/images/high-chaparral-real.jpg' },
+    { slug: 'anderstorp', title: t('anderstorp'), desc: 'Skandinaviens mest kända racerbana.', img: '/images/anderstorp-real.jpg' }
   ];
 
   return (
