@@ -52,7 +52,7 @@ export default function AnimatedActivities() {
               </div>
               <div className="p-6">
                 <p className="text-stone-600 text-sm mb-4">{act.desc}</p>
-                <div className="text-xs font-semibold uppercase tracking-widest text-stone-900 group-hover:text-stone-500 transition-colors">
+                <div className="text-xs font-semibold uppercase tracking-widest text-brand-primary group-hover:text-stone-500 transition-colors">
                   Läs mer →
                 </div>
               </div>

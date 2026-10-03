@@ -53,7 +53,7 @@ export default function Kontakt() {
             <label htmlFor="message" className="block text-sm font-medium text-stone-700 mb-2">{t('message')}</label>
             <textarea id="message" rows={5} required className="w-full px-4 py-3 rounded-lg border border-stone-200 focus:outline-none focus:ring-2 focus:ring-stone-400 bg-stone-50"></textarea>
           </div>
-          <button type="submit" className="w-full bg-stone-900 text-white py-4 rounded-lg hover:bg-stone-800 transition-colors font-medium text-lg">
+          <button type="submit" className="w-full bg-brand-accent text-white py-4 rounded-lg hover:bg-brand-primary transition-colors font-medium text-lg">
             {t('submit')}
           </button>
         </form>

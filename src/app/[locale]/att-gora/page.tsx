@@ -43,7 +43,7 @@ export default function AttGora() {
               <div className="p-8">
                 <h2 className="text-2xl font-semibold mb-2">{act.title}</h2>
                 <p className="text-stone-600">{act.desc}</p>
-                <div className="mt-4 text-sm font-medium uppercase tracking-wider text-stone-900 flex items-center gap-2">
+                <div className="mt-4 text-sm font-medium uppercase tracking-wider text-brand-primary flex items-center gap-2">
                   Läs mer <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </div>
               </div>

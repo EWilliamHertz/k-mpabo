@@ -11,7 +11,7 @@ export default function StoreMosse() {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <Link href="/att-gora" className="inline-flex items-center gap-2 text-stone-500 hover:text-stone-900 transition-colors mb-12 uppercase text-sm tracking-wider font-semibold">
+      <Link href="/att-gora" className="inline-flex items-center gap-2 text-stone-500 hover:text-brand-primary transition-colors mb-12 uppercase text-sm tracking-wider font-semibold">
         <ArrowLeft size={16} /> Tillbaka till översikt
       </Link>
 
@@ -44,10 +44,10 @@ export default function StoreMosse() {
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 h-fit">
               <h4 className="font-semibold text-lg mb-4 border-b border-stone-100 pb-2">Praktisk Information</h4>
               <ul className="space-y-3 text-stone-600">
-                <li><strong className="text-stone-900">Avstånd från Kämpabo:</strong> ca 25 minuter med bil</li>
-                <li><strong className="text-stone-900">Inträde:</strong> Gratis</li>
-                <li><strong className="text-stone-900">Passar för:</strong> Familjer, naturälskare, fotografer</li>
-                <li><strong className="text-stone-900">Tips:</strong> Ta med bekväma skor och en kikare!</li>
+                <li><strong className="text-brand-primary">Avstånd från Kämpabo:</strong> ca 25 minuter med bil</li>
+                <li><strong className="text-brand-primary">Inträde:</strong> Gratis</li>
+                <li><strong className="text-brand-primary">Passar för:</strong> Familjer, naturälskare, fotografer</li>
+                <li><strong className="text-brand-primary">Tips:</strong> Ta med bekväma skor och en kikare!</li>
               </ul>
             </div>
           </div>

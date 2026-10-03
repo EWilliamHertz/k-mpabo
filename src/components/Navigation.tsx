@@ -42,7 +42,7 @@ export default function Navigation() {
             <Link 
               key={link.href} 
               href={link.href as any}
-              className={`text-sm tracking-wide uppercase transition-colors hover:text-stone-500 ${pathname === link.href ? 'font-semibold text-stone-900' : 'text-stone-700'}`}
+              className={`text-sm tracking-wide uppercase transition-colors hover:text-stone-500 ${pathname === link.href ? 'font-semibold text-brand-primary' : 'text-stone-700'}`}
             >
               {link.label}
             </Link>

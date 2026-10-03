@@ -37,7 +37,7 @@ export default function MindreBoende() {
               <li>Egen uteplats</li>
               <li>Gratis Wi-Fi</li>
             </ul>
-            <button className="w-full mt-8 bg-stone-900 text-white py-3 rounded hover:bg-stone-800 transition-colors">
+            <button className="w-full mt-8 bg-brand-accent text-white py-3 rounded hover:bg-brand-primary transition-colors">
               Boka nu
             </button>
           </div>
