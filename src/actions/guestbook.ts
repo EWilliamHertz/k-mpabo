@@ -25,10 +25,15 @@ export async function addGuestbookEntry(formData: FormData) {
 
 export async function getGuestbookEntries() {
   const entries = await sql`
-    SELECT * FROM guestbook_entries
+    SELECT id, name, message, created_at FROM guestbook_entries
     ORDER BY created_at DESC
     LIMIT 10
   `;
   
-  return entries;
+  return entries.map(row => ({
+    id: Number(row.id),
+    name: String(row.name),
+    message: String(row.message),
+    created_at: new Date(row.created_at)
+  }));
 }
