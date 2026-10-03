@@ -2,22 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
 import { useRef } from 'react';
 
 export default function AnimatedActivities() {
   const t = useTranslations('AttGora');
-  const containerRef = useRef(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Animate upwards as user scrolls
-  const y = useTransform(scrollYProgress, [0, 0.5], [200, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   const activities = [
     { slug: 'store-mosse', title: t('storeMosse'), desc: 'Upplev södra Sveriges största myrområde.', img: '/images/nature.jpg' },
@@ -27,23 +17,32 @@ export default function AnimatedActivities() {
   ];
 
   return (
-    <section ref={containerRef} className="py-32 bg-stone-50 overflow-hidden relative">
+    <section className="py-32 bg-stone-50 overflow-hidden relative">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
-        <motion.div style={{ opacity, y }} className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-center mb-16"
+        >
           <h2 className="text-4xl md:text-5xl font-serif mb-6">{t('title')}</h2>
           <p className="text-lg text-stone-600 max-w-2xl mx-auto">{t('description')}</p>
         </motion.div>
 
-        <motion.div 
-          style={{ y, opacity }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {activities.map((act, index) => (
-            <Link 
-              key={act.slug} 
-              href={`/att-gora/${act.slug}` as any} 
-              className="group block overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2"
+            <motion.div
+              key={act.slug}
+              initial={{ opacity: 0, y: 100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: index * 0.15, ease: "easeOut" }}
             >
+              <Link 
+                href={`/att-gora/${act.slug}` as any} 
+                className="group block overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-full"
+              >
               <div className="relative h-64 w-full">
                 <Image src={act.img} alt={act.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
@@ -58,8 +57,9 @@ export default function AnimatedActivities() {
                 </div>
               </div>
             </Link>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
