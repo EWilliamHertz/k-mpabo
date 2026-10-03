@@ -61,6 +61,11 @@ export const routing = defineRouting({
       sv: '/kontakt',
       en: '/contact',
       de: '/kontakt'
+    },
+    '/gastbok': {
+      sv: '/gastbok',
+      en: '/guestbook',
+      de: '/gaestebuch'
     }
   }
 });

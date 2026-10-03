@@ -25,6 +25,7 @@ export default function Navigation() {
     { href: '/boende', label: t('boende') },
     { href: '/garden', label: t('garden') },
     { href: '/att-gora', label: t('attGora') },
+    { href: '/gastbok', label: t('gastbok') },
     { href: '/kontakt', label: t('kontakt') },
   ];
 

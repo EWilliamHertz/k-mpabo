@@ -4,7 +4,8 @@
     "boende": "Unterkunft",
     "garden": "Der Hof",
     "attGora": "Aktivitäten",
-    "kontakt": "Kontakt"
+    "gastbok": "Gästebuch",
+    "kontakt": "Buchen / Kontakt"
   },
   "Home": {
     "title": "Willkommen in Kämpabo",
@@ -25,6 +26,25 @@
     "highChaparral": "High Chaparral",
     "storeMosse": "Nationalpark Store Mosse",
     "anderstorp": "Anderstorp Raceway"
+  },
+  "Gastbok": {
+    "title": "Gästebuch",
+    "description": "Lesen Sie, was unsere bisherigen Gäste über ihren Aufenthalt denken, oder hinterlassen Sie Ihren eigenen Gruß.",
+    "leaveMessage": "Ins Gästebuch eintragen",
+    "name": "Name",
+    "message": "Nachricht",
+    "submit": "Eintrag absenden"
+  },
+  "Kontakt": {
+    "title": "Buchen & Kontakt",
+    "description": "Füllen Sie das untenstehende Formular aus, um eine Buchungsanfrage zu senden oder wenn Sie Fragen haben.",
+    "name": "Name",
+    "email": "E-Mail",
+    "dates": "Gewünschte Daten",
+    "guests": "Anzahl der Gäste",
+    "message": "Nachricht",
+    "submit": "Anfrage senden",
+    "success": "Vielen Dank für Ihre Anfrage! Wir werden uns so schnell wie möglich bei Ihnen melden."
   },
   "Footer": {
     "address": "Kämpabo 2 B, 334 91 Anderstorp, Schweden"
