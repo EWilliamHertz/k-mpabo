@@ -1,8 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import PhotoHero from '@/components/PhotoHero';
+import PropertyShowcase from '@/components/PropertyShowcase';
+import { accommodationCovers } from '@/lib/photos';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,19 +17,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default function HelaLillstuganPage() {
   const t = useTranslations('HelaLillstugan');
+  const tg = useTranslations('Gallery');
+  const cover = accommodationCovers.hela;
 
   return (
     <div className="pb-24">
-      {/* Hero Image Section */}
-      <div className="relative w-full h-[50vh] min-h-[400px]">
-        <Image src="/images/hero.jpg" alt="Boende" fill sizes="100vw" className="object-cover" priority />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-4xl md:text-6xl font-serif text-white text-center px-4 leading-tight">
-            {t('h1')}
-          </h1>
-        </div>
-      </div>
+      <PhotoHero photo={cover.photo} position={cover.position} title={t('h1')} eyebrow={tg('hela')} />
 
       <div className="container mx-auto px-4 max-w-3xl mt-16 text-center">
         {t.has('p1') && <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p1')}</p>}
@@ -64,6 +59,11 @@ export default function HelaLillstuganPage() {
         </div>
         
       </div>
+
+      <section className="container mx-auto px-4 max-w-6xl mt-8">
+        <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 text-stone-900">{tg('title')}</h2>
+        <PropertyShowcase />
+      </section>
     </div>
   );
 }

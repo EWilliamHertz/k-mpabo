@@ -50,7 +50,7 @@
     "h2_3": "Mieten Sie die gesamte Lillstugan",
     "p4": "Das gesamte Haus verfügt über 12 reguläre Schlafplätze, die auf die beiden Unterkünfte verteilt sind.",
     "btn3": "Lesen Sie über die Anmietung des gesamten Hauses",
-    "p5": "Unsicher, welche Unterkunft Sie wählen sollen? Beschreiben Sie Ihre Gruppe in der Anfrage.",
+    "p5": "Unsicher, welche Unterkunft Sie wählen sollen?\nBeschreiben Sie Ihre Gruppe in der Anfrage.",
     "btn4": "Fragen Sie nach freien Terminen"
   },
   "LillstuganUppe": {
@@ -239,5 +239,60 @@
     "title": "Willkommen in Kämpabo",
     "subtitle": "Eine friedliche Oase im Herzen von Småland",
     "cta": "Sehen Sie unsere Unterkünfte"
+  },
+  "Gallery": {
+    "title": "Kämpabo in Bildern",
+    "subtitle": "Der Hof, beide Etagen der Lillstugan und die Natur ringsum – im Sommer wie im Winter.",
+    "heroCta": "Bilder ansehen",
+    "scroll": "Nach unten scrollen",
+    "utomhus": "Draußen",
+    "uppe": "Obergeschoss",
+    "nere": "Erdgeschoss",
+    "hela": "Die ganze Lillstugan",
+    "uppeTitle": "Bilder aus dem Obergeschoss",
+    "nereTitle": "Bilder aus dem Erdgeschoss",
+    "utomhusTitle": "Der Hof und die Natur ringsum",
+    "seasonsTitle": "Der Hof im Wandel der Jahreszeiten",
+    "seasonsSubtitle": "Mohnwiesen und helle Sommerabende, Schnee und Wintersonne.",
+    "showAll": "Alle {count} Bilder anzeigen",
+    "open": "Bild öffnen",
+    "close": "Schließen",
+    "previous": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "counter": "{current} / {total}",
+    "alt": {
+      "utomhus": {
+        "gard-vallmo": "Das weiße Haus auf Kämpabo hinter einer Mohnwiese",
+        "uppfart-sommar": "Die Schotterauffahrt zur Lillstugan an einem sonnigen Sommertag",
+        "hus-over-faltet": "Der Hof, über das grüne Feld gesehen",
+        "vinter-hus": "Die Lillstugan in Schnee und Wintersonne",
+        "roddbat-sjon": "Das Ruderboot am Axels See",
+        "rodd-sjon": "Rudern auf dem See zwischen Birken und Schilf",
+        "vallmoang": "Sommerwiese voller Mohnblumen",
+        "appeltrad": "Alter Apfelbaum auf dem sonnigen Rasen",
+        "hus-kvallsljus": "Das Haus im Abendlicht am Schotterweg",
+        "skogsglanta": "Waldlichtung mit Fichten und blühendem Wiesenkerbel",
+        "lingon": "Preiselbeeren im Wald rund um den Hof",
+        "vinter-appeltrad": "Apfelbäume werfen lange Schatten auf den Schnee",
+        "istappar": "Eiszapfen und verschneite Felder an einem Wintertag"
+      },
+      "uppe": {
+        "vardagsrum": "Helles Wohnzimmer mit Ecksofa und Tagesbett im Obergeschoss",
+        "sovrum": "Schlafzimmer mit Doppelbett unter der Dachschräge",
+        "matplats": "Essbereich am Fenster im Obergeschoss"
+      },
+      "nere": {
+        "vardagsrum": "Wohnzimmer mit großem Ecksofa im Erdgeschoss",
+        "matplats": "Esstisch mit Platz für die ganze Gruppe",
+        "matplats-utsikt": "Der Essbereich mit Blick auf den Hofplatz",
+        "kok": "Die Küche im Erdgeschoss",
+        "kok-fonster": "Die Küche mit Fenster zum Garten",
+        "sovrum": "Schlafzimmer mit Kerzen und bezogenen Betten",
+        "sovrum-2": "Geräumiges Schlafzimmer mit mehreren Betten",
+        "sovrum-3": "Schlafzimmer mit Blick auf die Felder",
+        "badrum": "Badezimmer mit Dusche",
+        "badrum-tvatt": "Badezimmer mit Dusche und Waschmaschine"
+      }
+    }
   }
 }

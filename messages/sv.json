@@ -50,7 +50,7 @@
     "h2_3": "Hyr hela Lillstugan",
     "p4": "Hela huset har 12 ordinarie sovplatser fördelade mellan de två boendena.",
     "btn3": "Läs om att hyra hela huset",
-    "p5": "Är ni osäkra på vilket boende ni ska välja? Beskriv ert sällskap i förfrågan.",
+    "p5": "Är ni osäkra på vilket boende ni ska välja?\nBeskriv ert sällskap i förfrågan.",
     "btn4": "Fråga om lediga datum"
   },
   "LillstuganUppe": {
@@ -239,5 +239,60 @@
     "title": "Välkommen till Kämpabo",
     "subtitle": "En fridfull oas i hjärtat av Småland",
     "cta": "Se våra boenden"
+  },
+  "Gallery": {
+    "title": "Kämpabo i bilder",
+    "subtitle": "Gården, Lillstugans båda våningar och naturen runt omkring – sommar som vinter.",
+    "heroCta": "Se bilderna",
+    "scroll": "Scrolla ner",
+    "utomhus": "Utomhus",
+    "uppe": "Övervåningen",
+    "nere": "Nedervåningen",
+    "hela": "Hela Lillstugan",
+    "uppeTitle": "Bilder från övervåningen",
+    "nereTitle": "Bilder från nedervåningen",
+    "utomhusTitle": "Gården och naturen runt omkring",
+    "seasonsTitle": "Gården genom årstiderna",
+    "seasonsSubtitle": "Vallmoängar och ljusa sommarkvällar, snö och vintersol.",
+    "showAll": "Visa alla {count} bilder",
+    "open": "Öppna bild",
+    "close": "Stäng",
+    "previous": "Föregående bild",
+    "next": "Nästa bild",
+    "counter": "{current} / {total}",
+    "alt": {
+      "utomhus": {
+        "gard-vallmo": "Det vita huset på Kämpabo bakom en äng med vallmo",
+        "uppfart-sommar": "Grusvägen upp till Lillstugan en solig sommardag",
+        "hus-over-faltet": "Gården sedd över det gröna fältet",
+        "vinter-hus": "Lillstugan i snö och vintersol",
+        "roddbat-sjon": "Roddbåten vid Axels sjö",
+        "rodd-sjon": "Rodd på sjön bland björkar och vass",
+        "vallmoang": "Sommaräng full av vallmo",
+        "appeltrad": "Gammalt äppelträd på den solbelysta gräsmattan",
+        "hus-kvallsljus": "Huset i kvällsljus vid grusvägen",
+        "skogsglanta": "Skogsglänta med granar och blommande hundkex",
+        "lingon": "Lingon i skogen runt gården",
+        "vinter-appeltrad": "Äppelträd som kastar långa skuggor över snön",
+        "istappar": "Istappar och snötäckta fält en vinterdag"
+      },
+      "uppe": {
+        "vardagsrum": "Ljust vardagsrum med hörnsoffa och dagbädd på övervåningen",
+        "sovrum": "Sovrum med dubbelsäng under snedtaket",
+        "matplats": "Matplats vid fönstret på övervåningen"
+      },
+      "nere": {
+        "vardagsrum": "Vardagsrum med stor hörnsoffa på nedervåningen",
+        "matplats": "Matbord med plats för hela sällskapet",
+        "matplats-utsikt": "Matplatsen med utsikt mot gårdsplanen",
+        "kok": "Köket på nedervåningen",
+        "kok-fonster": "Köket med fönster mot trädgården",
+        "sovrum": "Sovrum med levande ljus och bäddade sängar",
+        "sovrum-2": "Rymligt sovrum med flera bäddar",
+        "sovrum-3": "Sovrum med utsikt över fälten",
+        "badrum": "Badrum med dusch",
+        "badrum-tvatt": "Badrum med dusch och tvättmaskin"
+      }
+    }
   }
 }

@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { accommodationCovers, altKey } from '@/lib/photos';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default function VaraBoendenPage() {
   const t = useTranslations('VaraBoenden');
+  const tg = useTranslations('Gallery');
 
   const accommodations = [
     {
@@ -22,21 +24,21 @@ export default function VaraBoendenPage() {
       desc: t('p2'),
       btn: t('btn1'),
       href: '/vara-boenden/lillstugan-uppe',
-      img: '/images/small.jpg'
+      cover: accommodationCovers.uppe
     },
     {
       title: t('h2_2'),
       desc: t('p3'),
       btn: t('btn2'),
       href: '/vara-boenden/lillstugan-nere',
-      img: '/images/large.jpg'
+      cover: accommodationCovers.nere
     },
     {
       title: t('h2_3'),
       desc: t('p4'),
       btn: t('btn3'),
       href: '/vara-boenden/hela-lillstugan',
-      img: '/images/hero.jpg'
+      cover: accommodationCovers.hela
     }
   ];
 
@@ -49,16 +51,25 @@ export default function VaraBoendenPage() {
       
       <div className="grid md:grid-cols-3 gap-8 mb-24">
         {accommodations.map((acc, idx) => (
-          <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
-            <div className="relative h-64 w-full">
-              <Image src={acc.img} alt={acc.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
-            </div>
+          <div key={idx} className="group relative bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-500">
+            <Link href={acc.href as any} className="relative block h-80 w-full overflow-hidden" tabIndex={-1} aria-hidden="true">
+              <Image
+                src={acc.cover.photo.src}
+                alt={tg(altKey(acc.cover.photo))}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                placeholder="blur"
+                blurDataURL={acc.cover.photo.blurDataURL}
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                style={{ objectPosition: acc.cover.position }}
+              />
+            </Link>
             <div className="p-8 flex flex-col flex-grow">
               <h2 className="text-2xl font-serif mb-4 text-stone-900">{acc.title}</h2>
               <p className="text-stone-600 leading-relaxed mb-8 whitespace-pre-line flex-grow">{acc.desc}</p>
               <Link 
                 href={acc.href as any} 
-                className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group"
+                className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group before:absolute before:inset-0"
               >
                 {acc.btn}
                 <ArrowRight size={18} className="text-brand-primary group-hover:translate-x-1 transition-transform" />
@@ -70,7 +81,7 @@ export default function VaraBoendenPage() {
 
       <div className="max-w-3xl mx-auto bg-brand-primary text-white rounded-3xl p-10 md:p-14 text-center shadow-lg relative overflow-hidden">
         <div className="relative z-10">
-          {t.has('p5') && <p className="text-xl md:text-2xl font-serif leading-relaxed mb-8">{t('p5')}</p>}
+          {t.has('p5') && <p className="text-xl md:text-2xl font-serif leading-relaxed mb-8 whitespace-pre-line">{t('p5')}</p>}
           {t.has('btn4') && (
             <Link href="/kontakt-bokning" className="inline-flex items-center gap-2 bg-white text-brand-primary px-8 py-4 rounded-full font-medium hover:bg-stone-100 transition-colors shadow-sm text-lg">
               {t('btn4')} <ArrowRight size={20} />

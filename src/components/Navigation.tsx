@@ -20,6 +20,10 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Pages that open with a full-bleed photo hero, where the bar starts transparent over the image
+  const heroPages = ['/', '/vara-boenden/lillstugan-uppe', '/vara-boenden/lillstugan-nere', '/vara-boenden/hela-lillstugan'];
+  const overHero = !scrolled && !isOpen && heroPages.includes(pathname);
+
   const links = [
     { href: '/om-kampabo', label: t('omKampabo') },
     { href: '/vara-boenden', label: t('varaBoenden') },
@@ -29,7 +33,7 @@ export default function Navigation() {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'} ${overHero ? 'text-white' : ''}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         <Link href="/" className="text-2xl font-semibold tracking-tighter">
           Kämpabo
@@ -41,12 +45,12 @@ export default function Navigation() {
             <Link 
               key={link.href} 
               href={link.href as any}
-              className={`text-sm tracking-wide uppercase transition-colors hover:text-stone-500 ${pathname === link.href ? 'font-semibold text-brand-primary' : 'text-stone-700'}`}
+              className={`text-sm tracking-wide uppercase transition-colors ${overHero ? `hover:text-white/70 ${pathname === link.href ? 'font-semibold text-white' : 'text-white/90'}` : `hover:text-stone-500 ${pathname === link.href ? 'font-semibold text-brand-primary' : 'text-stone-700'}`}`}
             >
               {link.label}
             </Link>
           ))}
-          <div className="flex gap-2 text-xs ml-4 border-l pl-4 border-stone-300">
+          <div className={`flex gap-2 text-xs ml-4 border-l pl-4 ${overHero ? 'border-white/40' : 'border-stone-300'}`}>
             <Link href={pathname as any} locale="sv" className="hover:underline">SV</Link>
             <Link href={pathname as any} locale="en" className="hover:underline">EN</Link>
             <Link href={pathname as any} locale="de" className="hover:underline">DE</Link>

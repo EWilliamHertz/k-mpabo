@@ -50,7 +50,7 @@
     "h2_3": "Rent the Entire Lillstugan",
     "p4": "The entire house has 12 regular beds distributed between the two accommodations.",
     "btn3": "Read about renting the entire house",
-    "p5": "Unsure which accommodation to choose? Describe your group in the request.",
+    "p5": "Unsure which accommodation to choose?\nDescribe your group in the request.",
     "btn4": "Ask about available dates"
   },
   "LillstuganUppe": {
@@ -239,5 +239,60 @@
     "title": "Welcome to Kämpabo",
     "subtitle": "A peaceful oasis in the heart of Småland",
     "cta": "See our accommodations"
+  },
+  "Gallery": {
+    "title": "Kämpabo in pictures",
+    "subtitle": "The farm, both floors of Lillstugan and the nature all around – summer and winter.",
+    "heroCta": "See the photos",
+    "scroll": "Scroll down",
+    "utomhus": "Outdoors",
+    "uppe": "Upstairs",
+    "nere": "Downstairs",
+    "hela": "The whole of Lillstugan",
+    "uppeTitle": "Photos from upstairs",
+    "nereTitle": "Photos from downstairs",
+    "utomhusTitle": "The farm and the surrounding nature",
+    "seasonsTitle": "The farm through the seasons",
+    "seasonsSubtitle": "Poppy meadows and light summer evenings, snow and winter sun.",
+    "showAll": "Show all {count} photos",
+    "open": "Open photo",
+    "close": "Close",
+    "previous": "Previous photo",
+    "next": "Next photo",
+    "counter": "{current} / {total}",
+    "alt": {
+      "utomhus": {
+        "gard-vallmo": "The white house at Kämpabo behind a meadow of poppies",
+        "uppfart-sommar": "The gravel drive up to Lillstugan on a sunny summer day",
+        "hus-over-faltet": "The farmhouse seen across the green field",
+        "vinter-hus": "Lillstugan in snow and winter sunshine",
+        "roddbat-sjon": "The rowing boat by Axel's lake",
+        "rodd-sjon": "Rowing on the lake among birches and reeds",
+        "vallmoang": "Summer meadow full of poppies",
+        "appeltrad": "Old apple tree on the sunlit lawn",
+        "hus-kvallsljus": "The house in evening light by the gravel road",
+        "skogsglanta": "Forest glade with spruces and blooming cow parsley",
+        "lingon": "Lingonberries in the forest around the farm",
+        "vinter-appeltrad": "Apple trees casting long shadows across the snow",
+        "istappar": "Icicles and snow-covered fields on a winter day"
+      },
+      "uppe": {
+        "vardagsrum": "Bright upstairs living room with corner sofa and daybed",
+        "sovrum": "Bedroom with double bed under the sloping ceiling",
+        "matplats": "Dining area by the window upstairs"
+      },
+      "nere": {
+        "vardagsrum": "Downstairs living room with a large corner sofa",
+        "matplats": "Dining table with room for the whole group",
+        "matplats-utsikt": "The dining area with a view of the farmyard",
+        "kok": "The downstairs kitchen",
+        "kok-fonster": "The kitchen with a window onto the garden",
+        "sovrum": "Bedroom with candles and made-up beds",
+        "sovrum-2": "Spacious bedroom with several beds",
+        "sovrum-3": "Bedroom overlooking the fields",
+        "badrum": "Bathroom with shower",
+        "badrum-tvatt": "Bathroom with shower and washing machine"
+      }
+    }
   }
 }

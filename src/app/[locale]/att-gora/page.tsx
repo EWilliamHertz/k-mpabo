@@ -64,7 +64,7 @@ export default function AttGoraPage() {
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
         {destinations.map((dest, idx) => (
-          <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+          <div key={idx} className="group relative bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
             <div className="relative h-56 w-full">
               <Image src={dest.img} alt={dest.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
             </div>
@@ -73,7 +73,7 @@ export default function AttGoraPage() {
               <p className="text-stone-600 leading-relaxed mb-8 whitespace-pre-line flex-grow">{dest.desc}</p>
               <Link 
                 href={dest.href as any} 
-                className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group"
+                className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group before:absolute before:inset-0"
               >
                 {dest.btn}
                 <ArrowRight size={18} className="text-brand-primary group-hover:translate-x-1 transition-transform" />
