@@ -44,7 +44,7 @@ export default function AnimatedActivities() {
                 className="group block overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all duration-500 h-full"
               >
               <div className="relative h-64 w-full">
-                <Image src={act.img} alt={act.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                <Image src={act.img} alt={act.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <h3 className="text-white text-xl font-semibold mb-2">{act.title}</h3>

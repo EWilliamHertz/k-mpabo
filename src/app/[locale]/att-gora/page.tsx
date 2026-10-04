@@ -66,7 +66,7 @@ export default function AttGoraPage() {
         {destinations.map((dest, idx) => (
           <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
             <div className="relative h-56 w-full">
-              <Image src={dest.img} alt={dest.title} fill className="object-cover" />
+              <Image src={dest.img} alt={dest.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover" />
             </div>
             <div className="p-8 flex flex-col flex-grow">
               <h2 className="text-2xl font-serif mb-4 text-stone-900">{dest.title}</h2>

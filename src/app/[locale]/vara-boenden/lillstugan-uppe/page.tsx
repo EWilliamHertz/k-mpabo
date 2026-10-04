@@ -20,7 +20,7 @@ export default function LillstuganUppePage() {
     <div className="pb-24">
       {/* Hero Image Section */}
       <div className="relative w-full h-[50vh] min-h-[400px]">
-        <Image src="/images/small.jpg" alt="Boende" fill className="object-cover" priority />
+        <Image src="/images/small.jpg" alt="Boende" fill sizes="100vw" className="object-cover" priority />
         <div className="absolute inset-0 bg-black/40" />
         <div className="absolute inset-0 flex items-center justify-center">
           <h1 className="text-4xl md:text-6xl font-serif text-white text-center px-4 leading-tight">

@@ -51,7 +51,7 @@ export default function VaraBoendenPage() {
         {accommodations.map((acc, idx) => (
           <div key={idx} className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow">
             <div className="relative h-64 w-full">
-              <Image src={acc.img} alt={acc.title} fill className="object-cover" />
+              <Image src={acc.img} alt={acc.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
             </div>
             <div className="p-8 flex flex-col flex-grow">
               <h2 className="text-2xl font-serif mb-4 text-stone-900">{acc.title}</h2>
