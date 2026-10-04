@@ -2,6 +2,7 @@ import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import BookingModal from '@/components/BookingModal';
 import { Link } from '@/i18n/routing';
+import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -22,6 +23,10 @@ export default function KontaktBokningPage() {
       <div className="max-w-2xl mx-auto mb-8 md:mb-10">
         {t.has('p1') && <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-4 md:mb-6 whitespace-pre-line">{t('p1')}</p>}
         {t.has('p2') && <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-4 md:mb-6 whitespace-pre-line">{t('p2')}</p>}
+      </div>
+
+      <div className="mb-12">
+        <AvailabilityCalendar />
       </div>
       
       <div className="mb-16">

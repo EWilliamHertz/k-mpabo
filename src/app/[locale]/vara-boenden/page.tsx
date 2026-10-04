@@ -4,6 +4,7 @@ import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { accommodationCovers, altKey } from '@/lib/photos';
+import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -77,6 +78,14 @@ export default function VaraBoendenPage() {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="max-w-4xl mx-auto mb-20 bg-stone-50 p-8 rounded-3xl border border-stone-100">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-serif text-stone-900 mb-2">Availability</h2>
+          <p className="text-stone-600">Check dates for our accommodations</p>
+        </div>
+        <AvailabilityCalendar />
       </div>
 
       <div className="max-w-3xl mx-auto bg-brand-primary text-white rounded-3xl p-10 md:p-14 text-center shadow-lg relative overflow-hidden">
