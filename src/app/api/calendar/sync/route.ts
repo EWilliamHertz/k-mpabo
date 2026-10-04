@@ -4,15 +4,17 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
+export const dynamic = 'force-dynamic';
+
 // This endpoint should ideally be triggered by a cron job
 // or a secure webhook to periodically sync from an external iCal URL (e.g. Airbnb)
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const icalUrl = searchParams.get('url');
+    const icalUrl = searchParams.get('url') || process.env.AIRBNB_ICAL_URL;
 
     if (!icalUrl) {
-      return NextResponse.json({ error: 'Missing ical url parameter' }, { status: 400 });
+      return NextResponse.json({ error: 'Missing ical url parameter or AIRBNB_ICAL_URL environment variable' }, { status: 400 });
     }
 
     const webEvents = await ical.async.fromURL(icalUrl);
