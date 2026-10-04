@@ -87,21 +87,25 @@ export default function AttGoraPage() {
         {t.has('h2_6') && <h2 className="text-3xl font-serif mb-8 text-stone-900">{t('h2_6')}</h2>}
         
         <div className="grid md:grid-cols-2 gap-8 text-left mb-12">
-          <div>
-            {t.has('p8') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p8')}</p>}
-            {t.has('btn6') && (
-              <a href="https://vandalorum.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
-                {t('btn6')} <ArrowRight size={16} />
-              </a>
-            )}
+          <div className="flex flex-col">
+            {t.has('p8') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line flex-grow">{t('p8')}</p>}
+            <div>
+              {t.has('btn6') && (
+                <a href="https://vandalorum.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
+                  {t('btn6')} <ArrowRight size={16} />
+                </a>
+              )}
+            </div>
           </div>
-          <div>
-            {t.has('p9') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p9')}</p>}
-            {t.has('btn7') && (
-              <a href="https://gekas.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
-                {t('btn7')} <ArrowRight size={16} />
-              </a>
-            )}
+          <div className="flex flex-col">
+            {t.has('p9') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line flex-grow">{t('p9')}</p>}
+            <div>
+              {t.has('btn7') && (
+                <a href="https://gekas.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
+                  {t('btn7')} <ArrowRight size={16} />
+                </a>
+              )}
+            </div>
           </div>
         </div>
 

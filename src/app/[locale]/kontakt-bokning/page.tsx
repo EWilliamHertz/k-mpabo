@@ -16,12 +16,12 @@ export default function KontaktBokningPage() {
   const t = useTranslations('KontaktBokning');
 
   return (
-    <div className="container mx-auto px-4 py-24 max-w-4xl pt-32 text-center min-h-[70vh] flex flex-col justify-center">
-      <h1 className="text-4xl md:text-6xl font-serif mb-8 text-stone-900">{t('h1')}</h1>
+    <div className="container mx-auto px-4 py-12 md:py-24 max-w-4xl pt-24 md:pt-32 text-center min-h-[50vh] md:min-h-[70vh] flex flex-col justify-start md:justify-center">
+      <h1 className="text-4xl md:text-6xl font-serif mb-6 md:mb-8 text-stone-900">{t('h1')}</h1>
       
-      <div className="max-w-2xl mx-auto mb-10">
-        {t.has('p1') && <p className="text-xl text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p1')}</p>}
-        {t.has('p2') && <p className="text-xl text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p2')}</p>}
+      <div className="max-w-2xl mx-auto mb-8 md:mb-10">
+        {t.has('p1') && <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-4 md:mb-6 whitespace-pre-line">{t('p1')}</p>}
+        {t.has('p2') && <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-4 md:mb-6 whitespace-pre-line">{t('p2')}</p>}
       </div>
       
       <div className="mb-16">
