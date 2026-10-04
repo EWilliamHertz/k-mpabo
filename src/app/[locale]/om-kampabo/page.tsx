@@ -18,6 +18,7 @@ export default function OmKampaboPage() {
   const t = useTranslations('OmKampabo');
   const tg = useTranslations('Gallery');
   const farm = getPhoto('utomhus', 'hus-over-faltet');
+  const boat = getPhoto('utomhus', 'roddbat-sjon');
 
   return (
     <div className="container mx-auto px-4 py-24 max-w-4xl pt-32">
@@ -26,18 +27,32 @@ export default function OmKampaboPage() {
       {t.has('p1') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p1')}</p>}
       {t.has('p2') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p2')}</p>}
       
-      <figure className="relative my-12 aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
-        <Image
-          src={farm.src}
-          alt={tg(altKey(farm))}
-          fill
-          sizes="(max-width: 896px) 100vw, 896px"
-          placeholder="blur"
-          blurDataURL={farm.blurDataURL}
-          className="object-cover"
-          style={{ objectPosition: '50% 30%' }}
-        />
-      </figure>
+      <div className="grid md:grid-cols-2 gap-6 my-12">
+        <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
+          <Image
+            src={farm.src}
+            alt={tg(altKey(farm))}
+            fill
+            sizes="(max-width: 896px) 100vw, 440px"
+            placeholder="blur"
+            blurDataURL={farm.blurDataURL}
+            className="object-cover"
+            style={{ objectPosition: '50% 30%' }}
+          />
+        </figure>
+        <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
+          <Image
+            src={boat.src}
+            alt={tg(altKey(boat))}
+            fill
+            sizes="(max-width: 896px) 100vw, 440px"
+            placeholder="blur"
+            blurDataURL={boat.blurDataURL}
+            className="object-cover"
+            style={{ objectPosition: '50% 50%' }}
+          />
+        </figure>
+      </div>
 
       {t.has('btn1') && (
         <div className="mb-8">
@@ -84,7 +99,7 @@ export default function OmKampaboPage() {
       <section className="mt-20">
         <h2 className="text-3xl md:text-4xl font-serif mb-4 text-stone-900 text-center">{tg('seasonsTitle')}</h2>
         <p className="text-lg text-stone-600 mb-10 text-center">{tg('seasonsSubtitle')}</p>
-        <PhotoGallery photos={propertyPhotos.utomhus} initialCount={6} />
+        <PhotoGallery photos={propertyPhotos.utomhus.filter(p => p.id !== 'roddbat-sjon')} initialCount={6} />
       </section>
 
       

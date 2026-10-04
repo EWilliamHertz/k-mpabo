@@ -1,10 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import postgres from 'postgres';
+import { PrismaClient } from '@prisma/client';
 
-// Ensure the database connection handles the pg pooler query params automatically
-const sql = postgres(process.env.DATABASE_URL!, { ssl: 'require' });
+const prisma = new PrismaClient();
 
 export async function addGuestbookEntry(formData: FormData) {
   const name = formData.get("name") as string;
@@ -14,26 +13,28 @@ export async function addGuestbookEntry(formData: FormData) {
     throw new Error("Name and message are required.");
   }
 
-  await sql`
-    INSERT INTO guestbook_entries (name, message)
-    VALUES (${name}, ${message})
-  `;
+  await prisma.guestbookEntry.create({
+    data: {
+      name,
+      message,
+    }
+  });
 
   revalidatePath("/");
   revalidatePath("/gastbok");
 }
 
 export async function getGuestbookEntries() {
-  const entries = await sql`
-    SELECT id, name, message, created_at FROM guestbook_entries
-    ORDER BY created_at DESC
-    LIMIT 10
-  `;
+  const entries = await prisma.guestbookEntry.findMany({
+    orderBy: { createdAt: 'desc' },
+    take: 10
+  });
   
   return entries.map(row => ({
-    id: Number(row.id),
-    name: String(row.name),
-    message: String(row.message),
-    created_at: new Date(row.created_at)
+    id: row.id,
+    name: row.name,
+    message: row.message,
+    created_at: row.createdAt
   }));
 }
+

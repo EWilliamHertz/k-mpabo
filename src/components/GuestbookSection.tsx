@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { addGuestbookEntry } from '@/actions/guestbook';
 import { useRef } from 'react';
 
-type Entry = { id: number, name: string, message: string, created_at: Date };
+type Entry = { id: string | number, name: string, message: string, created_at: Date };
 
 export default function GuestbookSection({ entries }: { entries: Entry[] }) {
   const t = useTranslations('Gastbok');
