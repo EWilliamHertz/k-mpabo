@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@react-email/components": "^1.0.12",
+    "@react-email/render": "^2.1.0",
     "@swc/core": "^1.16.13",
     "clsx": "^2.1.1",
     "framer-motion": "^14.0.0",

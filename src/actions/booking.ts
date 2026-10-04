@@ -2,6 +2,7 @@
 
 import postgres from 'postgres';
 import { Resend } from 'resend';
+import { BookingEmail } from '@/emails/BookingEmail';
 
 // Initialize Resend with the API key from environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -46,16 +47,7 @@ export async function submitBooking(formData: FormData) {
         to: process.env.CONTACT_EMAIL || 'delivered@resend.dev', // Ensure the user knows they need to specify their own email here or in .env
         subject: `Ny bokningsförfrågan från ${name}`,
         replyTo: email,
-        html: `
-          <h2>Ny bokningsförfrågan via hemsidan</h2>
-          <p><strong>Namn:</strong> ${name}</p>
-          <p><strong>E-post:</strong> ${email}</p>
-          <p><strong>Datum:</strong> ${dates || 'Ej angivet'}</p>
-          <p><strong>Antal gäster:</strong> ${guests || 'Ej angivet'}</p>
-          <br />
-          <h3>Meddelande:</h3>
-          <p>${message ? message.replace(/\\n/g, '<br/>') : 'Inget meddelande bifogat.'}</p>
-        `,
+        react: BookingEmail({ name, email, dates, guests, message })
       });
     } catch (emailError) {
       console.error("Kunde inte skicka e-post via Resend:", emailError);
