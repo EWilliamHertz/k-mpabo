@@ -1,0 +1,247 @@
+import fs from 'fs';
+import path from 'path';
+
+// This script will restructure the app and update routing and messages.
+
+const svMessages = {
+  Navigation: {
+    home: "Startsida",
+    omKampabo: "Om Kämpabo",
+    varaBoenden: "Våra boenden",
+    attGora: "Att göra i närheten",
+    gastbok: "Gästbok",
+    kontakt: "Kontakt & Bokning"
+  },
+  Startsida: {
+    title: "Kämpabo – familjegård och semesterboende i Småland",
+    meta: "Bo på en småländsk familjegård utanför Anderstorp. Upptäck Kämpabo, Lillstugan och Axels sjö med fiske och roddbåt.",
+    h1: "Kämpabo – bo på en småländsk familjegård",
+    p1: "Välkommen till Kämpabo, en familjegård på den småländska landsbygden utanför Anderstorp. Här finns plats för både utflykter och dagar utan ett fullt program.",
+    p2: "En roddtur eller en stund med fiskespöet kan få bli dagens utflykt. Som gäst på Kämpabo får du låna roddbåten och har möjlighet att fiska i den sjö som vi i familjen kallar Axels sjö.",
+    h2_1: "Boende för små och stora sällskap",
+    p3: "I Lillstugan kan ni välja ett eget boende för ett mindre sällskap eller hyra hela huset när ni reser flera tillsammans.",
+    btn1: "Se våra boenden",
+    p4: "Gården har funnits i familjen under flera generationer. Läs om dess historia och livet i den företagsamma småländska bygden.",
+    btn2: "Läs om Kämpabo",
+    h2_2: "Vad vill ni upptäcka i Småland?",
+    p5: "Från skidbackar och westernäventyr till myrlandskap och industrihistoria – på utflyktssidorna hittar ni besöksmål för olika intressen och årstider.",
+    btn3: "Hitta er nästa utflykt",
+    btn4: "Fråga om lediga datum"
+  },
+  OmKampabo: {
+    title: "Om Kämpabo – familjegården och dess historia",
+    meta: "Lär känna Kämpabo utanför Anderstorp: familjegården, Axel Ljungbergs Småländska Läder och traktens historia av hantverk och företagsamhet.",
+    h1: "En småländsk gård med historia",
+    p1: "Kämpabo är en familjegård på landsbygden utanför Anderstorp. Gården har funnits i familjen under flera generationer och ligger i en del av Småland där jordbruk, småindustri och företagsamhet länge har levt sida vid sida.",
+    p2: "På gården drev Axel Ljungberg läderindustrin Småländska Läder med omkring 40 anställda. Industrin gjorde gården till en arbetsplats för många människor och knyter Kämpabo till traktens långa tradition av tillverkning och småföretagande.",
+    h2_1: "Bygden bakom Gnosjöandan",
+    p3: "Gnosjöandan förknippas med företagsamhet och samarbete. För att förstå den är det värt att också se bakåt, mot det arbete som bedrevs vid bygdens vattendrag. Under 1700- och 1800-talen användes vattenkraft i små verkstäder för bland annat smide och tråddragning.",
+    p4: "Järnet bearbetades till smala ämnen och drogs sedan till tråd. Tråden blev material till många vardagsföremål, och metallbearbetningen var ofta ett komplement till jordbruket. Under slutet av 1800-talet tog småindustrin allt större plats. Den utvecklingen går fortfarande att upptäcka i Töllstorps industrimuseum.",
+    btn1: "Upptäck Gnosjö och Töllstorp",
+    p5: "I dag välkomnar vi gäster till Lillstugan. Boendena beskrivs på egna sidor, där ni kan välja det alternativ som passar er.",
+    btn2: "Se våra boenden"
+  },
+  VaraBoenden: {
+    title: "Våra boenden – Lillstugan på Kämpabo",
+    meta: "Lillstugan på Kämpabo har två separata boenden i samma hus. Välj uppe för 4, nere för 8 eller hyr hela huset med 12 ordinarie sovplatser.",
+    h1: "Våra boenden på Kämpabo",
+    p1: "Lillstugan rymmer två separata boenden som kan hyras var för sig eller tillsammans. Här jämför ni alternativen.",
+    h2_1: "Lillstugan uppe",
+    p2: "Det mindre boendet ligger på övervåningen och har 4 ordinarie sovplatser. Ett alternativ för en mindre familj, ett par eller vänner som vill bo på gården.",
+    btn1: "Se Lillstugan uppe",
+    h2_2: "Lillstugan nere",
+    p3: "Boendet på nedervåningen har 8 ordinarie sovplatser. Här finns plats för ett större sällskap som vill dela samma boende under vistelsen.",
+    btn2: "Se Lillstugan nere",
+    h2_3: "Hyr hela Lillstugan",
+    p4: "Hela huset har 12 ordinarie sovplatser fördelade mellan de två boendena.",
+    btn3: "Läs om att hyra hela huset",
+    p5: "Är ni osäkra på vilket boende ni ska välja? Beskriv ert sällskap i förfrågan.",
+    btn4: "Fråga om lediga datum"
+  },
+  LillstuganUppe: {
+    title: "Lillstugan uppe – boende för 4 på Kämpabo",
+    meta: "Hyr Lillstugan uppe på Kämpabo utanför Anderstorp. Ett separat boende på övervåningen för det mindre sällskapet, med 4 ordinarie sovplatser.",
+    h1: "Lillstugan uppe",
+    p1: "Lillstugan uppe ligger på övervåningen och har 4 ordinarie sovplatser. Boendet kan hyras separat och passar en mindre familj, ett par eller några vänner.",
+    p2: "Vid behov kan ytterligare en person sova på en vanlig soffa. Den är inte en bäddsoffa och räknas inte som en ordinarie sovplats. Ange i förfrågan om ni behöver använda den.",
+    p3: "Behöver ni fler sovplatser kan ni boka hela Lillstugan.",
+    btn1: "Se hela Lillstugan",
+    btn2: "Fråga om Lillstugan uppe"
+  },
+  LillstuganNere: {
+    title: "Lillstugan nere – boende för 8 på Kämpabo",
+    meta: "Lillstugan nere på Kämpabo har 8 ordinarie sovplatser. Hyr nedervåningens separata boende för en vistelse med familj eller vänner i Småland.",
+    h1: "Lillstugan nere",
+    p1: "Lillstugan nere ligger på nedervåningen och har 8 ordinarie sovplatser. Det är gårdens större boende för familj eller vänner som vill bo tillsammans i samma bostad.",
+    p2: "Upp till två ytterligare personer kan sova på vanliga soffor. Sofforna är inte bäddsoffor och ingår inte i de ordinarie sovplatserna. Berätta i förfrågan om detta är aktuellt för ert sällskap.",
+    p3: "För ett större sällskap finns möjlighet att boka hela Lillstugan.",
+    btn1: "Läs om att hyra hela huset",
+    btn2: "Fråga om Lillstugan nere"
+  },
+  HelaLillstugan: {
+    title: "Hyr hela Lillstugan – 12 sovplatser på Kämpabo",
+    meta: "Samla familj och vänner på Kämpabo. Hela Lillstugan har 12 ordinarie sovplatser fördelade på två separata boenden i samma hus.",
+    h1: "Hyr hela Lillstugan",
+    p1: "Hyr hela Lillstugan när ni reser flera familjer, ett större kompisgäng eller flera generationer tillsammans. Ni bokar då båda boendena för samma vistelse och får 12 ordinarie sovplatser: 4 på övervåningen och 8 på nedervåningen.",
+    p2: "Ni fördelar sällskapet mellan över- och nedervåningens separata bostäder.",
+    btn1: "Se övervåningen",
+    btn2: "Se nedervåningen",
+    btn3: "Se vad ni kan göra i området",
+    p3: "Vid behov kan ytterligare en person sova på en vanlig soffa uppe och upp till två personer på vanliga soffor nere. Det är inte bäddsoffor. Ange i er förfrågan om ni behöver använda en soffa.",
+    btn4: "Fråga om hela Lillstugan"
+  },
+  AttGora: {
+    title: "Att göra kring Kämpabo – utflykter i Småland",
+    meta: "Planera dagar på Isaberg, High Chaparral, Store Mosse eller i Anderstorp och Gnosjö. Upptäck också Kämpabos egen sjö med fiske och roddbåt.",
+    h1: "Utflykter och upplevelser kring Kämpabo",
+    p1: "Vad vill ni fylla dagarna med? Kring Anderstorp och Gnosjö finns både friluftsliv och platser som berättar om Smålands historia. Här har vi samlat utflykter med olika innehåll, så att ni kan välja efter intresse och årstid.",
+    p2: "Ni behöver inte åka till ett besöksmål för att göra något av dagen. På Kämpabo finns möjlighet att fiska i den sjö som familjen kallar Axels sjö, och som gäster får ni låna roddbåten.",
+    h2_1: "Isaberg – välj aktivitet efter årstiden",
+    p3: "För er som vill ha en aktiv dag i Hestra. Välj bland aktiviteter på berget och läs vår guide för planering efter årstid.",
+    btn1: "Planera ert besök på Isaberg",
+    h2_2: "High Chaparral – en dag i westernparken",
+    p4: "En familjeutflykt till westernparken i Kulltorp. Guiden hjälper er att planera parkdagen och kontrollera vad biljetten omfattar.",
+    btn2: "Läs om High Chaparral",
+    h2_3: "Store Mosse – vandring och fågelliv",
+    p5: "Upptäck nationalparkens myrlandskap till fots. På vår sida får ni hjälp att välja vandring, entré och upplägg för sällskapet.",
+    btn3: "Hitta en utflykt i Store Mosse",
+    h2_4: "Anderstorp – motorsport och gokart",
+    p6: "För den motorintresserade finns både racinghistoria och möjlighet att köra själv. Läs om Scandinavian Raceway och gokartbanan intill.",
+    btn4: "Upptäck Anderstorps motorhistoria",
+    h2_5: "Gnosjö – se hur småindustrin växte fram",
+    p7: "Lär känna bygdens företagsamhet genom två olika industrimiljöer. Läs om Töllstorp och Hylténs och hur ni planerar ett museibesök.",
+    btn5: "Läs om Gnosjö och industrimuseerna",
+    h2_6: "Fler idéer för en utflyktsdag",
+    p8: "Vandalorum i Värnamo är ett utflyktsmål för konst- och designintresserade. Kontrollera aktuella utställningar inför besöket.",
+    btn6: "Se vad som visas på Vandalorum",
+    p9: "Vill ni lägga en dag på shopping finns Gekås Ullared i Halland. Se öppettider och planera resvägen innan ni åker.",
+    btn7: "Planera ett besök på Gekås",
+    btn8: "Hitta ert boende på Kämpabo"
+  },
+  BoendeNaraIsaberg: {
+    title: "Boende nära Isaberg – Kämpabo i Småland",
+    meta: "Besök Isaberg och bo på Kämpabo utanför Anderstorp. Läs om cykling, skidåkning och familjeaktiviteter och välj ett boende i Lillstugan.",
+    h1: "Boende nära Isaberg",
+    p1: "På Kämpabo utanför Anderstorp kan ni bo under resan till Isaberg i Hestra. Välj ert boende i Lillstugan och planera aktiviteterna på berget här.",
+    btn1: "Välj boende inför Isabergsbesöket",
+    p2: "Rodel, höghöjdsbana och äventyrsgolf ger fler sätt att tillbringa tid på Isaberg. Titta på respektive aktivitets öppettider och villkor när ni planerar en familjedag. Utbudet behöver inte vara detsamma varje dag eller under alla delar av året.",
+    h2_1: "Mountainbike på Isaberg",
+    p3: "Isaberg har mountainbikeleder i olika svårighetsgrader, ett teknikområde med pumptrack och möjlighet till liftburen cykling. Ni kan välja mellan turer i terrängen och utförsleder på berget. Läs ledinformationen innan ni bestämmer upplägg, särskilt om sällskapet har olika erfarenhet av mountainbike.",
+    p4: "Cyklar kan hyras på Isaberg. Kontrollera att rätt storlek och utrustning finns för era datum. Läs också vilket cykelpass som behövs för de leder och liftar ni vill använda.",
+    btn2: "Se leder, cykeluthyrning och pass på Isaberg",
+    h2_2: "Skidåkning på Isaberg",
+    p5: "Under skidsäsongen erbjuder Isaberg alpin skidåkning, skiduthyrning och skidskola. Kontrollera öppna backar, liftar och bokningsmöjligheter inför resan; vinterns förhållanden påverkar utbudet.",
+    btn3: "Planera skidåkningen på Isaberg",
+    btn4: "Fråga om lediga datum"
+  },
+  BoendeNaraHighChaparral: {
+    title: "Boende nära High Chaparral – Kämpabo i Småland",
+    meta: "Besök High Chaparral i Kulltorp och bo på familjegården Kämpabo. Planera parkdagen och välj ett separat boende eller hela Lillstugan.",
+    h1: "Boende nära High Chaparral",
+    p1: "Bo på landsbygden utanför Anderstorp när familjen ska besöka High Chaparral i Kulltorp. Kämpabo erbjuder boende i Lillstugan; parkens biljetter bokar ni separat.",
+    btn1: "Välj boende för parkbesöket",
+    h2_1: "En dag på High Chaparral",
+    p2: "High Chaparral ligger i Kulltorp och är en temapark med Vilda Västern som tema. Shower och möten med parkens karaktärer varvas med sådant ni själva kan delta i. Bland upplevelserna finns tågresa och guldvaskning.",
+    p3: "Låt gärna familjen välja några saker som är viktigast att hinna med. Utgå sedan från showprogrammet och parkens karta, så slipper ni upptäcka sent på dagen att en föreställning ni ville se redan har varit.",
+    h2_2: "Biljetter och öppettider på High Chaparral",
+    p4: "Se först att parken är öppen på det datum ni tänkt besöka den. Kontrollera därefter biljetter, showtider och villkor för aktiviteterna. En del upplevelser kostar extra utöver entrén, så allt som visas i parkens utbud ska inte räknas som inkluderat i biljetten.",
+    btn2: "Se High Chaparrals öppettider och biljetter",
+    btn3: "Läs parkens information inför besöket",
+    btn4: "Läs om att hyra hela huset",
+    btn5: "Fråga om era resdatum"
+  },
+  BoendeNaraStoreMosse: {
+    title: "Boende nära Store Mosse nationalpark – Kämpabo",
+    meta: "Bo på Kämpabo när ni vill upptäcka Store Mosse. Läs om naturum, fågelskådning och hur ni väljer vandring efter tid och sällskap.",
+    h1: "Boende nära Store Mosse nationalpark",
+    p1: "Bo i Lillstugan på Kämpabo utanför Anderstorp under resan till Store Mosse. Här får ni hjälp att välja utflykt i nationalparken efter tid, underlag och sällskap.",
+    h2_1: "Vandring och entréer i Store Mosse",
+    p2: "Store Mosse har flera entréer och ett landskap av myrar och skog. Leder och spänger låter er upptäcka olika delar av nationalparken. Fundera först på hur länge ni vill vara ute och vad sällskapet orkar, och välj sedan en led och startplats som passar.",
+    p3: "Vid huvudentrén finns naturum Store Mosse, med utställningar och information om naturen. Därifrån utgår bland annat Wibecksleden. För barn finns också Skogstrollens stig i anslutning till naturum. Den som vill gå längre kan läsa om vandringen runt Kävsjön.",
+    btn1: "Jämför leder och upplevelser i Store Mosse",
+    p4: "Fågelskådning behöver inte innebära en lång vandring. Stora fågeltornet ligger vid huvudentrén och har utsikt över Kävsjön. Ta med kikare om ni har en och låt en stund vid tornet bli en del av utflykten.",
+    h2_2: "Planera efter underlag och sällskap",
+    p5: "För barnvagn eller rullstol är ledvalet särskilt viktigt. Wibecksleden är anpassad för bland annat barnvagnar och rullstolar, men det gäller inte automatiskt alla leder i nationalparken. Läs den aktuella besöksinformationen och kontrollera naturums öppettider innan ni åker.",
+    btn2: "Läs om entréer, service och tillgänglighet",
+    btn3: "Se boendena på Kämpabo",
+    btn4: "Fråga om en vistelse"
+  },
+  BoendeNaraAnderstorp: {
+    title: "Boende nära Scandinavian Raceway i Anderstorp – Kämpabo",
+    meta: "Bo på Kämpabo utanför Anderstorp vid ett besök på Scandinavian Raceway. Läs om Formel 1-historien och gokart på Scandinavian Kartway.",
+    h1: "Boende nära Scandinavian Raceway i Anderstorp",
+    p1: "Kämpabo erbjuder boende i Lillstugan på landsbygden utanför Anderstorp för er som ska besöka Scandinavian Raceway.",
+    btn1: "Se boendealternativen",
+    h2_1: "När Formel 1 kom till Anderstorp",
+    p2: "Motorbanans historia börjar med Anderstorp Racing Club, som bildades 1966. Banan stod klar 1968 och Sveriges första Formel 1-Grand Prix kördes här 1973. Under 1970-talet arrangerades sammanlagt sex Formel 1-VM-lopp i Anderstorp.",
+    h2_2: "Evenemang på Scandinavian Raceway",
+    p3: "Kontrollera arrangörens information för den tävling eller aktivitet ni vill besöka. Evenemangskalender, entré, biljetter och tider styr hur dagen kan läggas upp. En motorbana fungerar inte som ett museum med samma besöksmöjligheter varje dag.",
+    btn2: "Se evenemang och besöksinformation hos Scandinavian Raceway",
+    h2_3: "Kör själva på Scandinavian Kartway",
+    p4: "Mitt emot motorbanans huvudentré ligger Scandinavian Kartway. Gokartbanans sträckning är en förminskad version av den stora racingbanan. Här finns drop-in under angivna öppettider och möjlighet att boka gruppkörning.",
+    p5: "Titta på aktuella villkor och öppettider innan ni åker, särskilt om barn ska köra eller om ni vill hålla ihop som grupp. Gokarten är en separat aktivitet med egen bokning.",
+    btn3: "Planera gokart på Scandinavian Kartway",
+    btn4: "Fråga om boende för ert besök"
+  },
+  BoendeNaraGnosjo: {
+    title: "Boende nära Gnosjö – Töllstorp och Gnosjöandan",
+    meta: "Upptäck Töllstorps industrimuseum och historien bakom Gnosjöandan. Bo på familjegården Kämpabo utanför Anderstorp under besöket.",
+    h1: "Boende nära Gnosjö och Töllstorps industrimuseum",
+    p1: "Gnosjö är känt för sina företag, men ett besök kan också handla om tekniken och hantverket som kom före dagens industri. Bo på Kämpabo utanför Anderstorp och låt en utflykt till Töllstorps industrimuseum ge en närmare bild av bygden.",
+    h2_1: "Upptäck Töllstorps industrimuseum",
+    p2: "I Töllstorp får ni se hur järn och metalltråd kunde bli till produkter för vardagen. Räckhammare, tråddrageri, metallduksvävning och äldre tillverkningsmaskiner visar olika steg i arbetet. Bland de föremål som tillverkades finns hårnålar och kruköron.",
+    p3: "Museimiljön samlar byggnader och verkstäder som berättar om småindustrins framväxt. Här blir det lättare att förstå hur produktion i liten skala utvecklades och varför vattenkraften hade så stor betydelse.",
+    h2_2: "Planera för en visning",
+    p4: "Gnosjö hembygdsförening håller museet öppet under sommarmånaderna och arrangerar visningar. Kontrollera aktuella öppettider och när en guidad tur kan genomföras innan ni planerar dagen. Vill ni besöka museet som grupp bör ni ta reda på bokningsmöjligheterna i förväg.",
+    btn1: "Hitta aktuell museiinformation hos Visit Gnosjö",
+    h2_3: "Se också en senare industrimiljö",
+    p5: "Hylténs industrimuseum visar en bevarad metallfabrik med maskiner, verktyg och kontor. Ett besök där kan ge en annan bild av bygdens tillverkning än verkstäderna i Töllstorp. Kontrollera öppettiderna för respektive museum; de har olika besöksupplägg.",
+    btn2: "Läs om industrimuseerna hos Gnosjö kommun",
+    btn3: "Läs Kämpabos historia",
+    btn4: "Se våra boenden",
+    btn5: "Fråga om era datum"
+  },
+  KontaktBokning: {
+    title: "Kontakt och bokning – fråga om boende på Kämpabo",
+    meta: "Fråga om en vistelse på Kämpabo. Ange datum, antal gäster och om ni vill hyra Lillstugan uppe, nere eller hela huset.",
+    h1: "Välkommen med er bokningsförfrågan",
+    p1: "Ange era datum, antal gäster och om ni vill hyra Lillstugan uppe, nere eller hela huset. Är ni osäkra på boendevalet kan ni beskriva vad ni behöver.",
+    p2: "Skriv gärna om det är något särskilt ni vill veta före bokning, till exempel hur sovplatserna är fördelade eller vad som gäller vid ankomst.",
+    btn1: "Skicka bokningsförfrågan",
+    p3: "En förfrågan är inte en bekräftad bokning.",
+    h2_1: "Här ligger Kämpabo",
+    p4: "Kämpabo ligger på landsbygden utanför Anderstorp i Småland, i trakten kring Gnosjö och Isaberg.",
+    btn2: "Jämför boendena",
+    name: "Namn",
+    email: "E-post",
+    dates: "Önskade datum",
+    guests: "Antal gäster",
+    message: "Meddelande",
+    success: "Tack för din förfrågan! Vi återkommer så snart vi kan."
+  },
+  Gastbok: {
+    title: "Gästbok",
+    description: "Läs vad våra tidigare gäster tycker om sin vistelse, eller lämna en egen hälsning.",
+    leaveMessage: "Skriv i gästboken",
+    name: "Namn",
+    message: "Meddelande",
+    submit: "Skicka inlägg"
+  },
+  Footer: {
+    address: "Kämpabo 2 B, 334 91 Anderstorp"
+  },
+  CookieConsent: {
+    message: "Vi använder cookies för att förbättra din upplevelse. Inga spårningscookies aktiveras utan ditt medgivande.",
+    accept: "Acceptera alla",
+    decline: "Endast nödvändiga"
+  }
+};
+
+const enMessages = JSON.parse(JSON.stringify(svMessages));
+const deMessages = JSON.parse(JSON.stringify(svMessages));
+
+fs.writeFileSync('messages/sv.json', JSON.stringify(svMessages, null, 2));
+fs.writeFileSync('messages/en.json', JSON.stringify(enMessages, null, 2));
+fs.writeFileSync('messages/de.json', JSON.stringify(deMessages, null, 2));
+
+console.log("Translation files updated.");

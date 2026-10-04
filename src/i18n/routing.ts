@@ -7,60 +7,65 @@ export const routing = defineRouting({
   // Pathnames for SEO localization
   pathnames: {
     '/': '/',
-    '/boende': {
-      sv: '/boende',
-      en: '/accommodation',
-      de: '/unterkunft'
+    '/om-kampabo': {
+      sv: '/om-kampabo',
+      en: '/about-kampabo',
+      de: '/uber-kampabo'
     },
-    '/boende/mindre': {
-      sv: '/boende/mindre',
-      en: '/accommodation/small',
-      de: '/unterkunft/klein'
+    '/vara-boenden': {
+      sv: '/vara-boenden',
+      en: '/our-accommodations',
+      de: '/unsere-unterkunfte'
     },
-    '/boende/storre': {
-      sv: '/boende/storre',
-      en: '/accommodation/large',
-      de: '/unterkunft/gross'
+    '/vara-boenden/lillstugan-uppe': {
+      sv: '/vara-boenden/lillstugan-uppe',
+      en: '/our-accommodations/lillstugan-upstairs',
+      de: '/unsere-unterkunfte/lillstugan-oben'
     },
-    '/boende/bada': {
-      sv: '/boende/bada',
-      en: '/accommodation/both',
-      de: '/unterkunft/beide'
+    '/vara-boenden/lillstugan-nere': {
+      sv: '/vara-boenden/lillstugan-nere',
+      en: '/our-accommodations/lillstugan-downstairs',
+      de: '/unsere-unterkunfte/lillstugan-unten'
     },
-    '/garden': {
-      sv: '/garden',
-      en: '/the-farm',
-      de: '/der-hof'
+    '/vara-boenden/hela-lillstugan': {
+      sv: '/vara-boenden/hela-lillstugan',
+      en: '/our-accommodations/whole-lillstugan',
+      de: '/unsere-unterkunfte/ganzes-lillstugan'
     },
     '/att-gora': {
       sv: '/att-gora',
       en: '/things-to-do',
       de: '/aktivitaten'
     },
-    '/att-gora/isaberg': {
-      sv: '/att-gora/isaberg',
-      en: '/things-to-do/isaberg',
-      de: '/aktivitaten/isaberg'
+    '/boende-nara-isaberg': {
+      sv: '/boende-nara-isaberg',
+      en: '/accommodation-near-isaberg',
+      de: '/unterkunft-nahe-isaberg'
     },
-    '/att-gora/high-chaparral': {
-      sv: '/att-gora/high-chaparral',
-      en: '/things-to-do/high-chaparral',
-      de: '/aktivitaten/high-chaparral'
+    '/boende-nara-high-chaparral': {
+      sv: '/boende-nara-high-chaparral',
+      en: '/accommodation-near-high-chaparral',
+      de: '/unterkunft-nahe-high-chaparral'
     },
-    '/att-gora/store-mosse': {
-      sv: '/att-gora/store-mosse',
-      en: '/things-to-do/store-mosse',
-      de: '/aktivitaten/store-mosse'
+    '/boende-nara-store-mosse': {
+      sv: '/boende-nara-store-mosse',
+      en: '/accommodation-near-store-mosse',
+      de: '/unterkunft-nahe-store-mosse'
     },
-    '/att-gora/anderstorp': {
-      sv: '/att-gora/anderstorp',
-      en: '/things-to-do/anderstorp',
-      de: '/aktivitaten/anderstorp'
+    '/boende-nara-anderstorp': {
+      sv: '/boende-nara-anderstorp',
+      en: '/accommodation-near-anderstorp',
+      de: '/unterkunft-nahe-anderstorp'
     },
-    '/kontakt': {
-      sv: '/kontakt',
-      en: '/contact',
-      de: '/kontakt'
+    '/boende-nara-gnosjo': {
+      sv: '/boende-nara-gnosjo',
+      en: '/accommodation-near-gnosjo',
+      de: '/unterkunft-nahe-gnosjo'
+    },
+    '/kontakt-bokning': {
+      sv: '/kontakt-bokning',
+      en: '/contact-booking',
+      de: '/kontakt-buchung'
     },
     '/gastbok': {
       sv: '/gastbok',

@@ -21,12 +21,11 @@ export default function Navigation() {
   }, []);
 
   const links = [
-    { href: '/', label: t('home') },
-    { href: '/boende', label: t('boende') },
-    { href: '/garden', label: t('garden') },
+    { href: '/om-kampabo', label: t('omKampabo') },
+    { href: '/vara-boenden', label: t('varaBoenden') },
     { href: '/att-gora', label: t('attGora') },
     { href: '/gastbok', label: t('gastbok') },
-    { href: '/kontakt', label: t('kontakt') },
+    { href: '/kontakt-bokning', label: t('kontakt') },
   ];
 
   return (
