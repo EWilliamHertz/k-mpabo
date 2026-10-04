@@ -5,6 +5,7 @@ import { Link } from '@/i18n/routing';
 import HeroSection from '@/components/HeroSection';
 import AnimatedActivities from '@/components/AnimatedActivities';
 import PropertyShowcase from '@/components/PropertyShowcase';
+import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 import { accommodationCovers, altKey, getPhoto } from '@/lib/photos';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -106,11 +107,23 @@ export default function StartsidaPage() {
             <Link href="/att-gora" className="inline-block bg-brand-primary text-white px-6 py-3 rounded hover:bg-opacity-90 transition">{t('btn3')}</Link>
           </div>
         )}
-        {t.has('btn4') && (
-          <div>
-            <Link href="/kontakt-bokning" className="inline-block bg-stone-200 text-stone-800 px-6 py-3 rounded hover:bg-stone-300 transition">{t('btn4')}</Link>
-          </div>
-        )}
+      </section>
+
+      {/* Availability Calendar Section */}
+      <section className="bg-stone-50 py-24">
+        <div className="container mx-auto px-4 max-w-6xl text-center">
+          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-stone-900">Availability & Bookings</h2>
+          <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-12">
+            Check our availability calendar below. Dates highlighted in red are already booked.
+          </p>
+          <AvailabilityCalendar />
+          
+          {t.has('btn4') && (
+            <div className="mt-12">
+              <Link href="/kontakt-bokning" className="inline-block bg-stone-900 text-white px-8 py-4 rounded-full font-medium hover:bg-stone-800 transition shadow-lg">{t('btn4')}</Link>
+            </div>
+          )}
+        </div>
       </section>
     </div>
   );

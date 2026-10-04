@@ -13,3 +13,16 @@ model GuestbookEntry {
   message   String
   createdAt DateTime @default(now())
 }
+
+model Booking {
+  id                  String   @id @default(cuid())
+  startDate           DateTime
+  endDate             DateTime
+  status              String   @default("pending") // 'pending', 'confirmed', 'blocked'
+  source              String   @default("kampabo.se") // 'kampabo.se', 'airbnb'
+  externalReferenceId String?  @unique // To map Airbnb bookings
+  guestName           String?
+  guestEmail          String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+}
