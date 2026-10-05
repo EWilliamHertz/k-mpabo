@@ -19,6 +19,7 @@ export async function GET(request: Request) {
         startDate: true,
         endDate: true,
         status: true,
+        accommodation: true,
       }
     });
 

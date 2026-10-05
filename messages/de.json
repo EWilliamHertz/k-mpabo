@@ -311,6 +311,10 @@
     "prev": "Vorheriger Monat",
     "next": "Nächster Monat",
     "cabinTitle": "Verfügbarkeit",
-    "cabinSub": "Freie Termine für unsere Unterkünfte ansehen"
+    "cabinSub": "Freie Termine für unsere Unterkünfte ansehen",
+    "view_all": "Beide",
+    "view_stora": "Große (unten)",
+    "view_lilla": "Kleine (oben)",
+    "partial": "Eine Unterkunft gebucht"
   }
 }

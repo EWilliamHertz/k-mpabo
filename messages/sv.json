@@ -311,6 +311,10 @@
     "prev": "Föregående månad",
     "next": "Nästa månad",
     "cabinTitle": "Tillgänglighet",
-    "cabinSub": "Se lediga datum för våra boenden"
+    "cabinSub": "Se lediga datum för våra boenden",
+    "view_all": "Båda",
+    "view_stora": "Stora (nere)",
+    "view_lilla": "Lilla (uppe)",
+    "partial": "Ett boende bokat"
   }
 }

@@ -311,6 +311,10 @@
     "prev": "Previous month",
     "next": "Next month",
     "cabinTitle": "Availability",
-    "cabinSub": "Check dates for our accommodations"
+    "cabinSub": "Check dates for our accommodations",
+    "view_all": "Both",
+    "view_stora": "Large (downstairs)",
+    "view_lilla": "Small (upstairs)",
+    "partial": "One unit booked"
   }
 }
