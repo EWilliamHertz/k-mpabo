@@ -5,7 +5,7 @@ import { put, del } from '@vercel/blob';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "Yb07tw44!"; // It is highly recommended to set this in Vercel env vars instead of relying on the hardcoded fallback.
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const COOKIE_NAME = "kampabo_admin_session";
 
 export async function loginAdmin(password: string) {
