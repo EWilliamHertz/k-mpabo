@@ -21,6 +21,7 @@ model Booking {
   status              String   @default("pending") // 'pending', 'confirmed', 'blocked'
   source              String   @default("kampabo.se") // 'kampabo.se', 'airbnb'
   externalReferenceId String?  @unique // To map Airbnb bookings
+  accommodation       String?  // 'stora' (nere), 'lilla' (uppe) or null = blocks both
   guestName           String?
   guestEmail          String?
   createdAt           DateTime @default(now())

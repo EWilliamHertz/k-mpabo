@@ -11,13 +11,13 @@ type Booking = {
   status: string;
 };
 
-export default function AvailabilityCalendar() {
+export default function AvailabilityCalendar({ accommodation }: { accommodation?: 'stora' | 'lilla' }) {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/bookings')
+    fetch(accommodation ? `/api/bookings?accommodation=${accommodation}` : '/api/bookings')
       .then(res => res.json())
       .then(data => {
         setBookings(data.bookings || []);
@@ -27,7 +27,7 @@ export default function AvailabilityCalendar() {
         console.error('Error fetching bookings', err);
         setIsLoading(false);
       });
-  }, []);
+  }, [accommodation]);
 
   const prevMonth = () => setCurrentMonth(subMonths(currentMonth, 1));
   const nextMonth = () => setCurrentMonth(addMonths(currentMonth, 1));
