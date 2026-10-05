@@ -225,7 +225,9 @@
     "dates": "Önskade datum",
     "guests": "Antal gäster",
     "message": "Meddelande",
-    "success": "Tack för din förfrågan! Vi återkommer så snart vi kan."
+    "success": "Tack för din förfrågan! Vi återkommer så snart vi kan.",
+    "checkIn": "Ankomst",
+    "checkOut": "Avresa"
   },
   "Gastbok": {
     "title": "Gästbok",

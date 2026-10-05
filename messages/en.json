@@ -225,7 +225,9 @@
     "dates": "Desired dates",
     "guests": "Number of guests",
     "message": "Message",
-    "success": "Thank you for your request! We will get back to you as soon as possible."
+    "success": "Thank you for your request! We will get back to you as soon as possible.",
+    "checkIn": "Check-in",
+    "checkOut": "Check-out"
   },
   "Gastbok": {
     "title": "Guestbook",

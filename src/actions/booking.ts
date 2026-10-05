@@ -13,12 +13,23 @@ export async function submitBooking(formData: FormData) {
 
   const name = formData.get("name") as string;
   const email = formData.get("email") as string;
-  const dates = formData.get("dates") as string;
+  const checkIn = formData.get("checkIn") as string;
+  const checkOut = formData.get("checkOut") as string;
+  const dates = checkIn && checkOut ? `${checkIn} till ${checkOut}` : (formData.get("dates") as string || '');
   const guests = Number(formData.get("guests")) || 0;
   const message = formData.get("message") as string;
 
   if (!name || !email) {
     throw new Error("Name and email are required.");
+  }
+  
+  if (checkIn) {
+    const checkInDate = new Date(checkIn);
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() + 4); // Need to book at least 5 days in advance, checking using +4 to allow some timezone leeway on server, better validated on client
+    if (checkInDate < minDate) {
+      throw new Error("Du måste boka minst 5 dagar i förväg.");
+    }
   }
 
   // Create table if it doesn't exist to ensure smooth operation with NeonDB
@@ -43,7 +54,7 @@ export async function submitBooking(formData: FormData) {
   if (process.env.RESEND_API_KEY) {
     try {
       await resend.emails.send({
-        from: 'Kämpabo Bokning <onboarding@resend.dev>',
+        from: 'Kämpabo Bokning <bokning@kampabo.se>',
         to: process.env.CONTACT_EMAIL || 'delivered@resend.dev', // Ensure the user knows they need to specify their own email here or in .env
         subject: `Ny bokningsförfrågan från ${name}`,
         replyTo: email,

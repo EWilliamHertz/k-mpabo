@@ -10,6 +10,11 @@ interface BookingModalProps {
 }
 
 export default function BookingModal({ buttonText }: BookingModalProps) {
+  // Calculate min date (5 days from today)
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + 5);
+  const minDateString = minDate.toISOString().split('T')[0];
+
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -75,13 +80,17 @@ export default function BookingModal({ buttonText }: BookingModalProps) {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-stone-700 mb-1">{t('dates')}</label>
-                    <input name="dates" type="text" placeholder="t.ex. 12-15 juli" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />
+                    <label className="block text-sm font-medium text-stone-700 mb-1">{t('checkIn')} *</label>
+                    <input required name="checkIn" type="date" min={minDateString} className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-stone-700 mb-1">{t('guests')}</label>
-                    <input name="guests" type="number" min="1" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />
+                    <label className="block text-sm font-medium text-stone-700 mb-1">{t('checkOut')} *</label>
+                    <input required name="checkOut" type="date" min={minDateString} className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />
                   </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-stone-700 mb-1">{t('guests')} *</label>
+                  <input required name="guests" type="number" min="1" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-stone-700 mb-1">{t('message')}</label>

@@ -225,7 +225,9 @@
     "dates": "Gewünschte Daten",
     "guests": "Anzahl der Gäste",
     "message": "Nachricht",
-    "success": "Vielen Dank für Ihre Anfrage! Wir werden uns so schnell wie möglich bei Ihnen melden."
+    "success": "Vielen Dank für Ihre Anfrage! Wir werden uns so schnell wie möglich bei Ihnen melden.",
+    "checkIn": "Anreise",
+    "checkOut": "Abreise"
   },
   "Gastbok": {
     "title": "Gästebuch",
