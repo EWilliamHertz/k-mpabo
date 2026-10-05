@@ -44,7 +44,7 @@ export default function PropertyShowcase({
                 />
               )}
               <span className="relative z-10">
-                {t(cat)} <span className="opacity-60">· {photosData[cat].length}</span>
+                {t(cat)} <span className="opacity-60">· {(photosData[cat]?.length || 0)}</span>
               </span>
             </button>
           );
@@ -52,7 +52,7 @@ export default function PropertyShowcase({
       </div>
 
       <div role="tabpanel">
-        <PhotoGallery key={active} photos={photosData[active]} initialCount={initialCount} />
+        <PhotoGallery key={active} photos={photosData[active] || []} initialCount={initialCount} />
       </div>
     </div>
   );

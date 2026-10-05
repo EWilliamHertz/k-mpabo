@@ -48,12 +48,12 @@ export default async function StartsidaPage({ params }: any) {
           </div>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-xl">
             <Image
-              src={lake.src}
+              src={lake?.src || ''}
               alt={getAlt(lake, locale)}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               placeholder="blur"
-              blurDataURL={lake.blurDataURL}
+              blurDataURL={lake?.blurDataURL || ''}
               className="object-cover"
             />
           </div>

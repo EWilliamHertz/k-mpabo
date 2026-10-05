@@ -12,6 +12,15 @@ type Props = {
 /** Full-bleed photo header used on the accommodation pages. */
 export default async function PhotoHero({ photo, position = '50% 50%', title, eyebrow }: Props) {
   const tg = await getTranslations('Gallery');
+  
+  if (!photo) {
+    return (
+      <div className="relative w-full h-[70vh] min-h-[460px] overflow-hidden bg-stone-900 flex items-center justify-center text-white">
+        <h1>{title}</h1>
+      </div>
+    );
+  }
+
 
   return (
     <div className="relative w-full h-[70vh] min-h-[460px] overflow-hidden bg-stone-900">

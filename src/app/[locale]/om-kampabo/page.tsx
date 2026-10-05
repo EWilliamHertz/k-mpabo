@@ -30,30 +30,32 @@ export default async function OmKampaboPage({ params }: any) {
       {t.has('p2') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p2')}</p>}
       
       <div className="grid md:grid-cols-2 gap-6 my-12">
-        <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
-          <Image
-            src={farm.src}
-            alt={getAlt(farm, locale)}
-            fill
-            sizes="(max-width: 896px) 100vw, 440px"
-            placeholder="blur"
-            blurDataURL={farm.blurDataURL}
-            className="object-cover"
-            style={{ objectPosition: '50% 30%' }}
-          />
-        </figure>
-        <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
-          <Image
-            src={boat.src}
-            alt={getAlt(boat, locale)}
-            fill
-            sizes="(max-width: 896px) 100vw, 440px"
-            placeholder="blur"
-            blurDataURL={boat.blurDataURL}
-            className="object-cover"
-            style={{ objectPosition: '50% 50%' }}
-          />
-        </figure>
+        {farm && (
+          <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src={farm.src}
+              alt={getAlt(farm, locale)}
+              fill
+              sizes="(max-width: 896px) 100vw, 440px"
+              placeholder="empty"
+              className="object-cover"
+              style={{ objectPosition: '50% 30%' }}
+            />
+          </figure>
+        )}
+        {boat && (
+          <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src={boat.src}
+              alt={getAlt(boat, locale)}
+              fill
+              sizes="(max-width: 896px) 100vw, 440px"
+              placeholder="empty"
+              className="object-cover"
+              style={{ objectPosition: '50% 50%' }}
+            />
+          </figure>
+        )}
       </div>
 
       {t.has('btn1') && (
