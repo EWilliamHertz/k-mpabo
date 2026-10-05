@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
 import PhotoHero from '@/components/PhotoHero';
