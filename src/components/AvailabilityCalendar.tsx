@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isWithinInterval, startOfDay, startOfWeek, addDays } from 'date-fns';
+import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, startOfDay, startOfWeek, addDays } from 'date-fns';
 import { sv, enGB, de } from 'date-fns/locale';
 import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -45,7 +45,9 @@ export default function AvailabilityCalendar({ accommodation }: { accommodation?
     return bookings.some(booking => {
       const start = startOfDay(new Date(booking.startDate));
       const end = startOfDay(new Date(booking.endDate));
-      return isWithinInterval(startOfDay(date), { start, end });
+      // iCal end dates are exclusive (check-out day), so the check-out day stays available
+      const day = startOfDay(date);
+      return day >= start && day < end;
     });
   };
 
