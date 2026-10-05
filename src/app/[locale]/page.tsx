@@ -5,8 +5,8 @@ import HeroSection from '@/components/HeroSection';
 import AnimatedActivities from '@/components/AnimatedActivities';
 import PropertyShowcase from '@/components/PropertyShowcase';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
-import { accommodationCovers, altKey, getPhoto } from '@/lib/photos';
-import { getMergedPhotos } from '@/lib/photos.server';
+import { getAccommodationCovers, getMergedPhotos, getPhoto, getAlt, getHeroSlides } from '@/lib/photos.server';
+
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -17,19 +17,22 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function StartsidaPage() {
+export default async function StartsidaPage({ params }: any) {
   const t = await getTranslations('Startsida');
   const tg = await getTranslations('Gallery');
   const ta = await getTranslations('Availability');
 
-  const lake = getPhoto('utomhus', 'rodd-sjon');
+  const mergedPhotos = await getMergedPhotos();
+  const accommodationCovers = await getAccommodationCovers();
+  const heroSlides = await getHeroSlides();
+  const lake = getPhoto(mergedPhotos, 'utomhus', 'rodd-sjon');
   const uppe = accommodationCovers.uppe;
   const nere = accommodationCovers.nere;
-  const mergedPhotos = await getMergedPhotos();
+  const locale = (await params).locale;
 
   return (
     <div className="flex flex-col">
-      <HeroSection />
+      <HeroSection slides={heroSlides} />
 
       {/* Intro + lake */}
       <section id="valkommen" className="scroll-mt-24 container mx-auto px-4 py-24 max-w-6xl">
@@ -46,7 +49,7 @@ export default async function StartsidaPage() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl shadow-xl">
             <Image
               src={lake.src}
-              alt={tg(altKey(lake))}
+              alt={getAlt(lake, locale)}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               placeholder="blur"
@@ -65,7 +68,7 @@ export default async function StartsidaPage() {
               <div key={photo.src} className={`relative aspect-[3/4] overflow-hidden rounded-2xl shadow-lg ${i === 1 ? 'mt-12' : ''}`}>
                 <Image
                   src={photo.src}
-                  alt={tg(altKey(photo))}
+                  alt={getAlt(photo, locale)}
                   fill
                   sizes="(max-width: 1024px) 50vw, 25vw"
                   placeholder="blur"

@@ -3,8 +3,8 @@ import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
 import PhotoHero from '@/components/PhotoHero';
 import PropertyShowcase from '@/components/PropertyShowcase';
-import { accommodationCovers } from '@/lib/photos';
-import { getMergedPhotos } from '@/lib/photos.server';
+
+import { getMergedPhotos, getAccommodationCovers } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -18,8 +18,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function HelaLillstuganPage() {
   const t = await getTranslations('HelaLillstugan');
   const tg = await getTranslations('Gallery');
-  const cover = accommodationCovers.hela;
   const mergedPhotos = await getMergedPhotos();
+  const accommodationCovers = await getAccommodationCovers();
+  const cover = accommodationCovers.hela;
 
   return (
     <div className="pb-24">

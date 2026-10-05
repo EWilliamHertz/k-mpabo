@@ -2,8 +2,8 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import PhotoGallery from '@/components/PhotoGallery';
-import { altKey, getPhoto } from '@/lib/photos';
-import { getMergedPhotos } from '@/lib/photos.server';
+
+import { getMergedPhotos, getPhoto, getAlt } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -14,12 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default async function OmKampaboPage() {
+export default async function OmKampaboPage({ params }: any) {
   const t = await getTranslations('OmKampabo');
   const tg = await getTranslations('Gallery');
-  const farm = getPhoto('utomhus', 'hus-over-faltet');
-  const boat = getPhoto('utomhus', 'roddbat-sjon');
   const mergedPhotos = await getMergedPhotos();
+  const farm = getPhoto(mergedPhotos, 'utomhus', 'hus-over-faltet');
+  const boat = getPhoto(mergedPhotos, 'utomhus', 'roddbat-sjon');
+  const locale = (await params).locale;
 
   return (
     <div className="container mx-auto px-4 py-24 max-w-4xl pt-32">
@@ -32,7 +33,7 @@ export default async function OmKampaboPage() {
         <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
           <Image
             src={farm.src}
-            alt={tg(altKey(farm))}
+            alt={getAlt(farm, locale)}
             fill
             sizes="(max-width: 896px) 100vw, 440px"
             placeholder="blur"
@@ -44,7 +45,7 @@ export default async function OmKampaboPage() {
         <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
           <Image
             src={boat.src}
-            alt={tg(altKey(boat))}
+            alt={getAlt(boat, locale)}
             fill
             sizes="(max-width: 896px) 100vw, 440px"
             placeholder="blur"
@@ -98,7 +99,7 @@ export default async function OmKampaboPage() {
       {t.has('p9') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p9')}</p>}
 
       <section className="mt-20">
-        <PhotoGallery photos={mergedPhotos.utomhus.filter(p => p.id !== 'roddbat-sjon')} initialCount={6} />
+        <PhotoGallery photos={mergedPhotos.utomhus.filter(p => (!boat || p.id !== boat.id))} initialCount={6} />
       </section>
 
       

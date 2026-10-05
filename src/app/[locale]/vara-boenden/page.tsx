@@ -1,9 +1,8 @@
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
-import { accommodationCovers, altKey } from '@/lib/photos';
+import { getAccommodationCovers, getAlt } from '@/lib/photos.server';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -15,10 +14,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function VaraBoendenPage() {
-  const t = useTranslations('VaraBoenden');
-  const tg = useTranslations('Gallery');
-  const ta = useTranslations('Availability');
+export default async function VaraBoendenPage({ params }: any) {
+  const t = await getTranslations('VaraBoenden');
+  const tg = await getTranslations('Gallery');
+  const ta = await getTranslations('Availability');
+  const accommodationCovers = await getAccommodationCovers();
+  const locale = (await params).locale;
 
   const accommodations = [
     {
@@ -57,7 +58,7 @@ export default function VaraBoendenPage() {
             <Link href={acc.href as any} className="relative block h-80 w-full overflow-hidden" tabIndex={-1} aria-hidden="true">
               <Image
                 src={acc.cover.photo.src}
-                alt={tg(altKey(acc.cover.photo))}
+                alt={getAlt(acc.cover.photo, locale)}
                 fill
                 sizes="(max-width: 768px) 100vw, 33vw"
                 placeholder="blur"

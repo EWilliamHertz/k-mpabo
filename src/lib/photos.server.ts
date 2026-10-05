@@ -1,19 +1,19 @@
-
-import { propertyPhotos, PhotoCategory, Photo } from './photos';
 import { PrismaClient } from '@prisma/client';
+import { Photo, PhotoCategory } from './photos';
 
 const prisma = new PrismaClient();
 
 export async function getMergedPhotos(): Promise<Record<PhotoCategory, Photo[]>> {
-  const dynamicImages = await prisma.siteImage.findMany();
+  const images = await prisma.siteImage.findMany({ orderBy: { createdAt: 'asc' } });
   
   const merged: Record<PhotoCategory, Photo[]> = {
-    utomhus: [...propertyPhotos.utomhus],
-    uppe: [...propertyPhotos.uppe],
-    nere: [...propertyPhotos.nere],
+    utomhus: [],
+    uppe: [],
+    nere: [],
+    annan: []
   };
   
-  for (const img of dynamicImages) {
+  for (const img of images) {
     const cat = img.category as PhotoCategory;
     if (merged[cat]) {
       merged[cat].push({
@@ -30,4 +30,37 @@ export async function getMergedPhotos(): Promise<Record<PhotoCategory, Photo[]>>
     }
   }
   return merged;
+}
+
+export function getPhoto(merged: Record<PhotoCategory, Photo[]>, category: PhotoCategory, filenameKeyword: string) {
+  return merged[category]?.find(p => p.src.includes(filenameKeyword)) || merged[category]?.[0];
+}
+
+export function getAlt(photo: Photo | null | undefined, locale: string, fallbackText: string = 'Bild på Kämpabo') {
+  if (!photo) return fallbackText;
+  if (locale === 'sv' && photo.dynamicAltSv) return photo.dynamicAltSv;
+  if (locale === 'en' && photo.dynamicAltEn) return photo.dynamicAltEn;
+  if (locale === 'de' && photo.dynamicAltDe) return photo.dynamicAltDe;
+  return photo.dynamicAltSv || fallbackText;
+}
+
+export async function getAccommodationCovers() {
+  const merged = await getMergedPhotos();
+  
+  return {
+    uppe: { photo: getPhoto(merged, 'uppe', 'vardagsrum') || merged.uppe[0], position: '50% 60%' },
+    nere: { photo: getPhoto(merged, 'nere', 'vardagsrum') || merged.nere[0], position: '50% 55%' },
+    hela: { photo: getPhoto(merged, 'utomhus', 'uppfart-sommar') || merged.utomhus[0], position: '50% 55%' },
+  };
+}
+
+export async function getHeroSlides() {
+  const merged = await getMergedPhotos();
+  return [
+    { photo: getPhoto(merged, 'utomhus', 'gard-vallmo'), position: '50% 30%' },
+    { photo: getPhoto(merged, 'utomhus', 'uppfart-sommar'), position: '50% 55%' },
+    { photo: getPhoto(merged, 'utomhus', 'roddbat-sjon'), position: '50% 60%' },
+    { photo: getPhoto(merged, 'utomhus', 'vinter-hus'), position: '50% 40%' },
+    { photo: getPhoto(merged, 'utomhus', 'hus-over-faltet'), position: '50% 25%' },
+  ].filter(s => s.photo);
 }

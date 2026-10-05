@@ -41,7 +41,6 @@ export async function uploadSiteImage(formData: FormData) {
 
   if (!file || !category) throw new Error("File and category are required");
 
-  // Require Vercel Blob token
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
     throw new Error("BLOB_READ_WRITE_TOKEN saknas i miljön. Lägg till den i Vercel.");
   }
@@ -74,24 +73,13 @@ export async function deleteSiteImage(id: string, url: string) {
   return { success: true };
 }
 
-import { propertyPhotos } from '@/lib/photos';
-
 export async function getAllAdminImages() {
   const dynamicImages = await prisma.siteImage.findMany({ orderBy: { createdAt: 'desc' } });
   
   const allImages = {
-    utomhus: [
-      ...dynamicImages.filter(img => img.category === 'utomhus').map(img => ({ ...img, isDynamic: true })),
-      ...propertyPhotos.utomhus.map(img => ({ id: img.id, url: img.src, category: 'utomhus', isDynamic: false, altSv: 'Standardbild' }))
-    ],
-    uppe: [
-      ...dynamicImages.filter(img => img.category === 'uppe').map(img => ({ ...img, isDynamic: true })),
-      ...propertyPhotos.uppe.map(img => ({ id: img.id, url: img.src, category: 'uppe', isDynamic: false, altSv: 'Standardbild' }))
-    ],
-    nere: [
-      ...dynamicImages.filter(img => img.category === 'nere').map(img => ({ ...img, isDynamic: true })),
-      ...propertyPhotos.nere.map(img => ({ id: img.id, url: img.src, category: 'nere', isDynamic: false, altSv: 'Standardbild' }))
-    ],
+    utomhus: dynamicImages.filter(img => img.category === 'utomhus').map(img => ({ ...img, isDynamic: true })),
+    uppe: dynamicImages.filter(img => img.category === 'uppe').map(img => ({ ...img, isDynamic: true })),
+    nere: dynamicImages.filter(img => img.category === 'nere').map(img => ({ ...img, isDynamic: true })),
     annan: dynamicImages.filter(img => img.category === 'annan').map(img => ({ ...img, isDynamic: true }))
   };
   

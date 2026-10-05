@@ -4,8 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import PhotoHero from '@/components/PhotoHero';
 import PhotoGallery from '@/components/PhotoGallery';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
-import { accommodationCovers } from '@/lib/photos';
-import { getMergedPhotos } from '@/lib/photos.server';
+
+import { getMergedPhotos, getAccommodationCovers } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -19,8 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function LillstuganUppePage() {
   const t = await getTranslations('LillstuganUppe');
   const tg = await getTranslations('Gallery');
-  const cover = accommodationCovers.uppe;
   const mergedPhotos = await getMergedPhotos();
+  const accommodationCovers = await getAccommodationCovers();
+  const cover = accommodationCovers.uppe;
 
   return (
     <div className="pb-24">

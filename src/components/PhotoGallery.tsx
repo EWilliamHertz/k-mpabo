@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { altKey, type Photo } from '@/lib/photos';
+import { type Photo } from '@/lib/photos';
 import { useLocale } from 'next-intl';
 
 type LightboxProps = {
@@ -25,7 +25,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
     if (locale === 'sv' && p.dynamicAltSv) return p.dynamicAltSv;
     if (locale === 'en' && p.dynamicAltEn) return p.dynamicAltEn;
     if (locale === 'de' && p.dynamicAltDe) return p.dynamicAltDe;
-    return t(altKey(p));
+    return p.dynamicAltSv || 'Kämpabo';
   };
   const open = index !== null;
 
@@ -55,7 +55,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
   }, [open, go, onClose]);
 
   const photo = index !== null ? photos[index] : null;
-  const alt = photo ? t(altKey(photo)) : '';
+  const alt = photo ? (photo.dynamicAltSv || 'Kämpabo') : '';
 
   return (
     <AnimatePresence>
@@ -156,7 +156,7 @@ export default function PhotoGallery({ photos, initialCount }: GalleryProps) {
     <>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {visible.map((photo, i) => {
-          const alt = t(altKey(photo));
+          const alt = (photo.dynamicAltSv || 'Kämpabo');
           return (
           <motion.button
             key={photo.src}

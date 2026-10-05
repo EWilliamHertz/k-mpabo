@@ -6,21 +6,31 @@ import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from '@/i18n/routing';
 import { ArrowRight, ChevronDown } from 'lucide-react';
-import { altKey, heroSlides } from '@/lib/photos';
+import { useLocale } from 'next-intl';
+import { type Photo } from '@/lib/photos';
 
 const SLIDE_MS = 7000;
 
-export default function HeroSection() {
+export default function HeroSection({ slides }: { slides: { photo: Photo, position: string }[] }) {
   const t = useTranslations('Home');
   const tg = useTranslations('Gallery');
+  const locale = useLocale();
+  
+  const getAlt = (p: Photo) => {
+    if (locale === 'sv' && p.dynamicAltSv) return p.dynamicAltSv;
+    if (locale === 'en' && p.dynamicAltEn) return p.dynamicAltEn;
+    if (locale === 'de' && p.dynamicAltDe) return p.dynamicAltDe;
+    return 'Kämpabo';
+  };
+
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setIndex((i) => (i + 1) % heroSlides.length), SLIDE_MS);
+    const id = setInterval(() => setIndex((i) => (i + 1) % slides.length), SLIDE_MS);
     return () => clearInterval(id);
   }, [index]);
 
-  const slide = heroSlides[index];
+  const slide = slides[index];
 
   return (
     <section className="relative w-full h-[100svh] min-h-[560px] flex items-center justify-center overflow-hidden bg-stone-900">
@@ -41,7 +51,7 @@ export default function HeroSection() {
           >
             <Image
               src={slide.photo.src}
-              alt={tg(altKey(slide.photo))}
+              alt={getAlt(slide.photo)}
               fill
               priority={index === 0}
               sizes="100vw"
@@ -89,11 +99,11 @@ export default function HeroSection() {
 
       <div className="absolute bottom-8 inset-x-0 z-10 flex flex-col items-center gap-6">
         <div className="flex gap-2">
-          {heroSlides.map((s, i) => (
+          {slides.map((s, i) => (
             <button
               key={s.photo.src}
               onClick={() => setIndex(i)}
-              aria-label={tg('counter', { current: i + 1, total: heroSlides.length })}
+              aria-label={tg('counter', { current: i + 1, total: slides.length })}
               className={`h-1.5 rounded-full transition-all duration-500 ${i === index ? 'w-10 bg-white' : 'w-4 bg-white/50 hover:bg-white/80'}`}
             />
           ))}

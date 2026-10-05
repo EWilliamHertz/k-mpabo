@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { altKey, type Photo } from '@/lib/photos';
+import { type Photo } from '@/lib/photos';
 
 type Props = {
   photo: Photo;
@@ -17,7 +17,7 @@ export default async function PhotoHero({ photo, position = '50% 50%', title, ey
     <div className="relative w-full h-[70vh] min-h-[460px] overflow-hidden bg-stone-900">
       <Image
         src={photo.src}
-        alt={tg(altKey(photo))}
+        alt={(photo.dynamicAltSv || 'Kämpabo')}
         fill
         sizes="100vw"
         priority
