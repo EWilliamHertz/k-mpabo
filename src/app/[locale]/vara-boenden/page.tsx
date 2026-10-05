@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default function VaraBoendenPage() {
   const t = useTranslations('VaraBoenden');
   const tg = useTranslations('Gallery');
+  const ta = useTranslations('Availability');
 
   const accommodations = [
     {
@@ -82,8 +83,8 @@ export default function VaraBoendenPage() {
 
       <div className="max-w-4xl mx-auto mb-20 bg-stone-50 p-8 rounded-3xl border border-stone-100">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-serif text-stone-900 mb-2">Availability</h2>
-          <p className="text-stone-600">Check dates for our accommodations</p>
+          <h2 className="text-2xl font-serif text-stone-900 mb-2">{ta('cabinTitle')}</h2>
+          <p className="text-stone-600">{ta('cabinSub')}</p>
         </div>
         <AvailabilityCalendar />
       </div>

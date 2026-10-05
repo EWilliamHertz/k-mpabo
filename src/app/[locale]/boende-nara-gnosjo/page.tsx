@@ -27,6 +27,10 @@ export default function BoendeNaraGnosjoPage() {
         </div>
       )}
 
+      {t.has('h2_out') && <h2 className="text-3xl font-serif mt-12 mb-6 text-stone-800">{t('h2_out')}</h2>}
+      {t.has('p_out1') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p_out1')}</p>}
+      {t.has('p_out2') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p_out2')}</p>}
+
       {t.has('h2_1') && <h2 className="text-3xl font-serif mt-12 mb-6 text-stone-800">{t('h2_1')}</h2>}
       {t.has('p3') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p3')}</p>}
       {t.has('p4') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p4')}</p>}

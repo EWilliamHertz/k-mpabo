@@ -1,7 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isWithinInterval, startOfDay } from 'date-fns';
+import { format, addMonths, subMonths, startOfMonth, endOfMonth, eachDayOfInterval, isSameMonth, isToday, isWithinInterval, startOfDay, startOfWeek, addDays } from 'date-fns';
+import { sv, enGB, de } from 'date-fns/locale';
+import { useLocale, useTranslations } from 'next-intl';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Booking = {
@@ -12,6 +14,9 @@ type Booking = {
 };
 
 export default function AvailabilityCalendar({ accommodation }: { accommodation?: 'stora' | 'lilla' }) {
+  const t = useTranslations('Availability');
+  const locale = useLocale();
+  const dfLocale = locale === 'sv' ? sv : locale === 'de' ? de : enGB;
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,27 +52,27 @@ export default function AvailabilityCalendar({ accommodation }: { accommodation?
   return (
     <div className="max-w-md mx-auto p-6 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-stone-100 transition-all">
       <div className="flex justify-between items-center mb-6">
-        <button onClick={prevMonth} className="p-2 hover:bg-stone-100 rounded-full transition-colors" aria-label="Previous month">
+        <button onClick={prevMonth} className="p-2 hover:bg-stone-100 rounded-full transition-colors" aria-label={t('prev')}>
           <ChevronLeft className="w-5 h-5 text-stone-600" />
         </button>
         <h2 className="text-xl font-medium text-stone-800 tracking-wide">
-          {format(currentMonth, 'MMMM yyyy')}
+          {format(currentMonth, 'LLLL yyyy', { locale: dfLocale })}
         </h2>
-        <button onClick={nextMonth} className="p-2 hover:bg-stone-100 rounded-full transition-colors" aria-label="Next month">
+        <button onClick={nextMonth} className="p-2 hover:bg-stone-100 rounded-full transition-colors" aria-label={t('next')}>
           <ChevronRight className="w-5 h-5 text-stone-600" />
         </button>
       </div>
 
       <div className="grid grid-cols-7 gap-1 mb-2">
-        {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-          <div key={day} className="text-center text-xs font-semibold uppercase tracking-wider text-stone-400 py-2">
-            {day.charAt(0)}
+        {Array.from({ length: 7 }).map((_, i) => format(addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), i), 'EEEEE', { locale: dfLocale })).map((day, i) => (
+          <div key={i} className="text-center text-xs font-semibold uppercase tracking-wider text-stone-400 py-2">
+            {day}
           </div>
         ))}
       </div>
 
       <div className="grid grid-cols-7 gap-2">
-        {Array.from({ length: monthStart.getDay() }).map((_, i) => (
+        {Array.from({ length: (monthStart.getDay() + 6) % 7 }).map((_, i) => (
           <div key={`empty-${i}`} className="p-2" />
         ))}
         
@@ -89,7 +94,7 @@ export default function AvailabilityCalendar({ accommodation }: { accommodation?
                 ${past && !booked ? 'text-stone-300 hover:bg-stone-50 hover:text-stone-400' : (!booked ? 'text-stone-700' : '')}
                 ${isLoading ? 'animate-pulse bg-stone-100 text-transparent' : ''}
               `}
-              title={booked ? 'Booked' : 'Available'}
+              title={booked ? t('booked') : t('available')}
             >
               {format(date, 'd')}
             </div>
@@ -100,11 +105,11 @@ export default function AvailabilityCalendar({ accommodation }: { accommodation?
       <div className="mt-8 flex gap-6 justify-center text-sm border-t border-stone-100 pt-6">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-white border border-stone-300 shadow-sm"></div>
-          <span className="text-stone-500 font-medium">Available</span>
+          <span className="text-stone-500 font-medium">{t('available')}</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-red-50 border border-red-100 shadow-inner"></div>
-          <span className="text-stone-500 font-medium">Booked</span>
+          <span className="text-stone-500 font-medium">{t('booked')}</span>
         </div>
       </div>
     </div>

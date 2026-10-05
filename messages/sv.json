@@ -9,9 +9,9 @@
   },
   "Startsida": {
     "title": "Kämpabo – familjegård och semesterboende i Småland",
-    "meta": "Bo på en småländsk familjegård utanför Anderstorp. Upptäck Kämpabo, Lillstugan och Axels sjö med fiske och roddbåt.",
+    "meta": "Bo på en småländsk familjegård utanför Anderstorp, nära Gnosjö, Hestra och Isaberg. Upptäck Kämpabo, Lillstugan och Axels sjö med fiske och roddbåt.",
     "h1": "Kämpabo – bo på en småländsk familjegård",
-    "p1": "Välkommen till Kämpabo, en familjegård på den småländska landsbygden utanför Anderstorp. Här finns plats för både utflykter och dagar utan ett fullt program.",
+    "p1": "Välkommen till Kämpabo! Kämpabo är en familjegård på den småländska landsbygden utanför Anderstorp, med Gnosjö, Hestra och Isaberg inom räckhåll för utflykter. Här finns också plats för dagar utan ett fullt program.",
     "p2": "En roddtur eller en stund med fiskespöet kan få bli dagens utflykt. Som gäst på Kämpabo får du låna roddbåten och har möjlighet att fiska i den sjö som vi i familjen kallar Axels sjö.",
     "h2_1": "Boende för små och stora sällskap",
     "p3": "I Lillstugan kan ni välja ett eget boende för ett mindre sällskap eller hyra hela huset när ni reser flera tillsammans.",
@@ -25,9 +25,9 @@
   },
   "OmKampabo": {
     "title": "Om Kämpabo – familjegården och dess historia",
-    "meta": "Lär känna Kämpabo utanför Anderstorp: familjegården, Axel Ljungbergs Småländska Läder och traktens historia av hantverk och företagsamhet.",
+    "meta": "Lär känna Kämpabo utanför Anderstorp, nära Gnosjö, Hestra och Isaberg: familjegården, Axel Ljungbergs Småländska Läder och traktens historia av hantverk och företagsamhet.",
     "h1": "En småländsk gård med historia",
-    "p1": "Kämpabo är en familjegård på landsbygden utanför Anderstorp. Gården har funnits i familjen under flera generationer och ligger i en del av Småland där jordbruk, småindustri och företagsamhet länge har levt sida vid sida.",
+    "p1": "Kämpabo är en familjegård på den småländska landsbygden utanför Anderstorp, med Gnosjö, Hestra och Isaberg inom räckhåll för utflykter. Gården har funnits i familjen under flera generationer och ligger i en del av Småland där jordbruk, småindustri och företagsamhet länge har levt sida vid sida.",
     "p2": "På gården drev Axel Ljungberg läderindustrin Småländska Läder med omkring 40 anställda. Industrin gjorde gården till en arbetsplats för många människor och knyter Kämpabo till traktens långa tradition av tillverkning och småföretagande.",
     "h2_1": "Bygden bakom Gnosjöandan",
     "p3": "Gnosjöandan förknippas med företagsamhet och samarbete. För att förstå den är det värt att också se bakåt, mot det arbete som bedrevs vid bygdens vattendrag. Under 1700- och 1800-talen användes vattenkraft i små verkstäder för bland annat smide och tråddragning.",
@@ -87,7 +87,7 @@
   },
   "AttGora": {
     "title": "Att Göra i Närheten",
-    "meta": "Planera dagar på Isaberg, High Chaparral, Store Mosse eller i Anderstorp och Gnosjö. Upptäck också Kämpabos egen sjö med fiske och roddbåt.",
+    "meta": "Planera dagar på Isaberg, golf, High Chaparral, Store Mosse eller i Anderstorp och Gnosjö. Upptäck också Kämpabos egen sjö med fiske och roddbåt.",
     "h1": "Utflykter och upplevelser kring Kämpabo",
     "p1": "Vad vill ni fylla dagarna med? Kring Anderstorp och Gnosjö finns både friluftsliv och platser som berättar om Smålands historia. Här har vi samlat utflykter med olika innehåll, så att ni kan välja efter intresse och årstid.",
     "p2": "Ni behöver inte åka till ett besöksmål för att göra något av dagen. På Kämpabo finns möjlighet att fiska i den sjö som familjen kallar Axels sjö, och som gäster får ni låna roddbåten.",
@@ -104,8 +104,8 @@
     "p6": "För den motorintresserade finns både racinghistoria och möjlighet att köra själv.\nLäs om Scandinavian Raceway och gokartbanan intill.",
     "btn4": "Upptäck Anderstorps motorhistoria",
     "h2_5": "Gnosjö – se hur småindustrin växte fram",
-    "p7": "Lär känna bygdens företagsamhet genom två olika industrimiljöer. Läs om Töllstorp och Hylténs och hur ni planerar ett museibesök.",
-    "btn5": "Läs om Gnosjö och industrimuseerna",
+    "p7": "Lär känna bygdens företagsamhet och friluftsliv: Töllstorpsområdet med MTB-leder, motionsspår och bad, samt industrimuseerna Töllstorp och Hyltén.",
+    "btn5": "Läs om Gnosjö och Töllstorpsområdet",
     "h2_6": "Fler idéer för en utflyktsdag",
     "p8": "Vandalorum i Värnamo är ett utflyktsmål för konst- och designintresserade. Kontrollera aktuella utställningar inför besöket.",
     "btn6": "Se vad som visas på Vandalorum",
@@ -116,7 +116,12 @@
     "isaberg": "Isaberg Mountain Resort",
     "highChaparral": "High Chaparral",
     "storeMosse": "Store Mosse Nationalpark",
-    "anderstorp": "Anderstorp Raceway"
+    "anderstorp": "Anderstorp Raceway",
+    "h2_golf": "Golf – Isaberg Golfklubb",
+    "p_golf": "Isaberg Golfklubb i Nissafors/Hestra har två 18-hålsbanor, Östra och Västra banan, samt drivingrange och en korthålsbana med Pay & Play. Det passar både vana golfare och den som vill prova på.",
+    "btn_golf": "Se banor, bokning och öppettider",
+    "p_zoo": "Borås Djurpark är en möjlig heldagsutflykt för barnfamiljer och ett komplement till High Chaparral och de mer lokala aktiviteterna. Kontrollera öppettider, biljetter och program innan ni åker.",
+    "btn_zoo": "Planera en dag på Borås Djurpark"
   },
   "BoendeNaraIsaberg": {
     "title": "Boende nära Isaberg – Kämpabo i Småland",
@@ -184,11 +189,11 @@
     "btn4": "Fråga om boende för ert besök"
   },
   "BoendeNaraGnosjo": {
-    "title": "Boende nära Gnosjö – Töllstorp och Gnosjöandan",
-    "meta": "Upptäck Töllstorps industrimuseum och historien bakom Gnosjöandan. Bo på familjegården Kämpabo utanför Anderstorp under besöket.",
-    "h1": "Boende nära Gnosjö och Töllstorps industrimuseum",
-    "p1": "Gnosjö är känt för sina företag, men ett besök kan också handla om tekniken och hantverket som kom före dagens industri. Bo på Kämpabo utanför Anderstorp och låt en utflykt till Töllstorps industrimuseum ge en närmare bild av bygden.",
-    "h2_1": "Upptäck Töllstorps industrimuseum",
+    "title": "Boende nära Gnosjö – Töllstorp, friluftsliv och Gnosjöandan",
+    "meta": "Upptäck Töllstorpsområdet i Gnosjö med MTB, rullskidor, bad och industrimuseum. Bo på familjegården Kämpabo utanför Anderstorp under besöket.",
+    "h1": "Boende nära Gnosjö och Töllstorp",
+    "p1": "Gnosjö är känt för sina företag, men Töllstorpsområdet erbjuder mer än industrihistoria: här finns också MTB-leder, motionsspår och simhall. Bo på Kämpabo utanför Anderstorp och välj själv mellan friluftsliv och museibesök.",
+    "h2_1": "Töllstorps industrimuseum – industrihistoria från 1700-talet",
     "p2": "I Töllstorp får ni se hur järn och metalltråd kunde bli till produkter för vardagen. Räckhammare, tråddrageri, metallduksvävning och äldre tillverkningsmaskiner visar olika steg i arbetet. Bland de föremål som tillverkades finns hårnålar och kruköron.",
     "p3": "Museimiljön samlar byggnader och verkstäder som berättar om småindustrins framväxt. Här blir det lättare att förstå hur produktion i liten skala utvecklades och varför vattenkraften hade så stor betydelse.",
     "h2_2": "Planera för en visning",
@@ -199,7 +204,10 @@
     "btn2": "Läs om industrimuseerna hos Gnosjö kommun",
     "btn3": "Läs Kämpabos historia",
     "btn4": "Se våra boenden",
-    "btn5": "Fråga om era datum"
+    "btn5": "Fråga om era datum",
+    "h2_out": "Töllstorpsområdet – MTB, rullskidor och bad",
+    "p_out1": "I Töllstorp finns flera MTB-leder med olika svårighetsgrad och motionsspår där det går att springa och åka rullskidor. Töllstorpshallen har simhall, vilket gör området lämpligt för både träning och en familjeaktivitet under vistelsen.",
+    "p_out2": "Två längre leder från området knyter dessutom ihop Töllstorp med Isaberg respektive Store Mosse, så ni kan kombinera flera utflyktsmål."
   },
   "KontaktBokning": {
     "title": "Kontakt och bokning – fråga om boende på Kämpabo",
@@ -210,7 +218,7 @@
     "btn1": "Skicka bokningsförfrågan",
     "p3": "En förfrågan är inte en bekräftad bokning.",
     "h2_1": "Här ligger Kämpabo",
-    "p4": "Kämpabo ligger på landsbygden utanför Anderstorp i Småland, i trakten kring Gnosjö och Isaberg.",
+    "p4": "Kämpabo ligger på landsbygden utanför Anderstorp i Småland (adress: Kämpabo 2 B, 334 91 Anderstorp), nära Gnosjö, Hestra och Isaberg.",
     "btn2": "Jämför boendena",
     "name": "Namn",
     "email": "E-post",
@@ -294,5 +302,15 @@
         "badrum-tvatt": "Badrum med dusch och tvättmaskin"
       }
     }
+  },
+  "Availability": {
+    "title": "Tillgänglighet & bokningar",
+    "intro": "Se vår tillgänglighetskalender nedan. Datum markerade i rött är redan bokade.",
+    "available": "Ledigt",
+    "booked": "Bokat",
+    "prev": "Föregående månad",
+    "next": "Nästa månad",
+    "cabinTitle": "Tillgänglighet",
+    "cabinSub": "Se lediga datum för våra boenden"
   }
 }

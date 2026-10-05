@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default function StartsidaPage() {
   const t = useTranslations('Startsida');
   const tg = useTranslations('Gallery');
+  const ta = useTranslations('Availability');
 
   const lake = getPhoto('utomhus', 'rodd-sjon');
   const uppe = accommodationCovers.uppe;
@@ -112,9 +113,9 @@ export default function StartsidaPage() {
       {/* Availability Calendar Section */}
       <section className="bg-stone-50 py-24">
         <div className="container mx-auto px-4 max-w-6xl text-center">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-stone-900">Availability & Bookings</h2>
+          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-stone-900">{ta('title')}</h2>
           <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-12">
-            Check our availability calendar below. Dates highlighted in red are already booked.
+            {ta('intro')}
           </p>
           <AvailabilityCalendar />
           

@@ -9,9 +9,9 @@
   },
   "Startsida": {
     "title": "Kämpabo – Familienhof und Ferienunterkunft in Småland",
-    "meta": "Übernachten Sie auf einem Familienhof in Småland außerhalb von Anderstorp. Entdecken Sie Kämpabo, Lillstugan und Axels See mit Angeln und Ruderboot.",
+    "meta": "Übernachten Sie auf einem Familienhof in Småland außerhalb von Anderstorp, nahe Gnosjö, Hestra und Isaberg. Entdecken Sie Kämpabo, Lillstugan und Axels See mit Angeln und Ruderboot.",
     "h1": "Kämpabo – Übernachten Sie auf einem Småland Familienhof",
-    "p1": "Willkommen in Kämpabo, einem Familienhof in der småländischen Landschaft außerhalb von Anderstorp. Hier gibt es Platz für Ausflüge und entspannte Tage ohne vollen Zeitplan.",
+    "p1": "Willkommen in Kämpabo! Kämpabo ist ein Familienhof auf dem småländischen Land außerhalb von Anderstorp, mit Gnosjö, Hestra und Isaberg in Reichweite für Ausflüge. Hier gibt es auch Platz für Tage ohne vollen Zeitplan.",
     "p2": "Ein Ruderausflug oder ein Moment mit der Angelrute können der Ausflug des Tages sein. Als Gast in Kämpabo können Sie das Ruderboot ausleihen und haben die Möglichkeit, in dem See zu angeln, den unsere Familie Axels See nennt.",
     "h2_1": "Unterkunft für kleine und große Gruppen",
     "p3": "In Lillstugan können Sie eine separate Unterkunft für eine kleinere Gruppe wählen oder das gesamte Haus mieten, wenn Sie zusammen reisen.",
@@ -25,9 +25,9 @@
   },
   "OmKampabo": {
     "title": "Über Kämpabo – Der Familienhof und seine Geschichte",
-    "meta": "Lernen Sie Kämpabo außerhalb von Anderstorp kennen: den Familienhof, Axel Ljungbergs Småländska Läder und die Geschichte von Handwerk und Unternehmertum der Region.",
+    "meta": "Lernen Sie Kämpabo außerhalb von Anderstorp, nahe Gnosjö, Hestra und Isaberg, kennen: den Familienhof, Axel Ljungbergs Småländska Läder und die Geschichte von Handwerk und Unternehmertum der Region.",
     "h1": "Ein Småland Hof mit Geschichte",
-    "p1": "Kämpabo ist ein Familienhof auf dem Land außerhalb von Anderstorp. Der Hof ist seit mehreren Generationen in Familienbesitz und liegt in einem Teil von Småland, in dem Landwirtschaft, Kleinindustrie und Unternehmertum lange Seite an Seite gelebt haben.",
+    "p1": "Kämpabo ist ein Familienhof auf dem småländischen Land außerhalb von Anderstorp, mit Gnosjö, Hestra und Isaberg in Reichweite für Ausflüge. Der Hof ist seit mehreren Generationen in Familienbesitz und liegt in einem Teil von Småland, in dem Landwirtschaft, Kleinindustrie und Unternehmertum lange Seite an Seite gelebt haben.",
     "p2": "Auf dem Hof betrieb Axel Ljungberg die Lederindustrie Småländska Läder mit rund 40 Mitarbeitern. Die Industrie machte den Hof zu einem Arbeitsplatz für viele Menschen und verbindet Kämpabo mit der langen Tradition der Region in Bezug auf Produktion und Kleinunternehmen.",
     "h2_1": "Die Region hinter dem Gnosjö-Geist",
     "p3": "Der Gnosjö-Geist wird mit Unternehmertum und Zusammenarbeit in Verbindung gebracht. Um ihn zu verstehen, lohnt es sich, auf die Arbeit an den Wasserstraßen der Region zurückzublicken. Im 18. und 19. Jahrhundert wurde Wasserkraft in kleinen Werkstätten unter anderem zum Schmieden und Drahtziehen genutzt.",
@@ -87,7 +87,7 @@
   },
   "AttGora": {
     "title": "Unternehmungen rund um Kämpabo – Ausflüge in Småland",
-    "meta": "Planen Sie Tage am Isaberg, High Chaparral, Store Mosse oder in Anderstorp und Gnosjö. Entdecken Sie auch Kämpabos eigenen See mit Angeln und Ruderboot.",
+    "meta": "Planen Sie Tage in Isaberg, beim Golf, in High Chaparral, Store Mosse oder in Anderstorp und Gnosjö. Entdecken Sie auch Kämpabos eigenen See mit Angeln und Ruderboot.",
     "h1": "Ausflüge und Erlebnisse rund um Kämpabo",
     "p1": "Womit möchten Sie Ihre Tage füllen? Rund um Anderstorp und Gnosjö gibt es sowohl Outdoor-Leben als auch Orte, die die Geschichte Smålands erzählen. Hier haben wir Ausflüge mit unterschiedlichen Inhalten gesammelt, sodass Sie nach Interesse und Jahreszeit wählen können.",
     "p2": "Sie müssen nicht zu einem Besucherziel fahren, um etwas aus dem Tag zu machen. Auf Kämpabo besteht die Möglichkeit, in dem See zu angeln, den die Familie Axels See nennt, und als Gäste können Sie das Ruderboot ausleihen.",
@@ -104,8 +104,8 @@
     "p6": "Für Motorsportbegeisterte gibt es sowohl Renngeschichte als auch die Möglichkeit, selbst zu fahren.\nLesen Sie über den Scandinavian Raceway und die Go-Kart-Bahn nebenan.",
     "btn4": "Entdecken Sie Anderstorps Motorgeschichte",
     "h2_5": "Gnosjö – sehen Sie, wie Kleinindustrie entstand",
-    "p7": "Lernen Sie das Unternehmertum der Region durch zwei verschiedene Industrieumgebungen kennen. Lesen Sie über Töllstorp und Hylténs und wie man einen Museumsbesuch plant.",
-    "btn5": "Lesen Sie über Gnosjö und die Industriemuseen",
+    "p7": "Lernen Sie das Unternehmertum und das Outdoor-Leben der Region kennen: das Töllstorp-Gebiet mit MTB-Strecken, Laufstrecken und Bademöglichkeit sowie die Industriemuseen Töllstorp und Hyltén.",
+    "btn5": "Lesen Sie über Gnosjö und das Töllstorp-Gebiet",
     "h2_6": "Weitere Ideen für einen Ausflugstag",
     "p8": "Vandalorum in Värnamo ist ein Ausflugsziel für Kunst- und Designinteressierte. Informieren Sie sich vor dem Besuch über aktuelle Ausstellungen.",
     "btn6": "Sehen Sie, was im Vandalorum gezeigt wird",
@@ -116,7 +116,12 @@
     "isaberg": "Isaberg Mountain Resort",
     "highChaparral": "High Chaparral",
     "storeMosse": "Store Mosse Nationalpark",
-    "anderstorp": "Anderstorp Raceway"
+    "anderstorp": "Anderstorp Raceway",
+    "h2_golf": "Golf – Isaberg Golfklubb",
+    "p_golf": "Der Isaberg Golfklubb in Nissafors/Hestra hat zwei 18-Loch-Plätze, den Östlichen und den Westlichen Platz, sowie eine Driving Range und einen Kurzplatz mit Pay & Play. Er eignet sich für erfahrene Golfer ebenso wie für alle, die es ausprobieren möchten.",
+    "btn_golf": "Plätze, Buchung und Öffnungszeiten ansehen",
+    "p_zoo": "Der Tierpark Borås ist ein möglicher ganztägiger Ausflug für Familien mit Kindern und eine Ergänzung zu High Chaparral und den lokaleren Aktivitäten. Informieren Sie sich vor der Fahrt über Öffnungszeiten, Tickets und Programm.",
+    "btn_zoo": "Einen Tag im Tierpark Borås planen"
   },
   "BoendeNaraIsaberg": {
     "title": "Unterkunft in der Nähe von Isaberg – Kämpabo in Småland",
@@ -184,11 +189,11 @@
     "btn4": "Fragen Sie nach einer Unterkunft für Ihren Besuch"
   },
   "BoendeNaraGnosjo": {
-    "title": "Unterkunft in der Nähe von Gnosjö – Töllstorp und der Gnosjö-Geist",
-    "meta": "Entdecken Sie das Töllstorp Industriemuseum und die Geschichte hinter dem Gnosjö-Geist. Übernachten Sie auf dem Familienhof Kämpabo außerhalb von Anderstorp während Ihres Besuchs.",
-    "h1": "Unterkunft in der Nähe von Gnosjö und dem Töllstorp Industriemuseum",
-    "p1": "Gnosjö ist bekannt für seine Unternehmen, aber ein Besuch kann auch die Technologie und Handwerkskunst zum Thema haben, die der heutigen Industrie vorausging. Übernachten Sie auf Kämpabo außerhalb von Anderstorp und lassen Sie sich bei einem Ausflug zum Töllstorp Industriemuseum ein genaueres Bild von der Region vermitteln.",
-    "h2_1": "Entdecken Sie das Töllstorp Industriemuseum",
+    "title": "Unterkunft nahe Gnosjö – Töllstorp, Outdoor und Gnosjö-Geist",
+    "meta": "Entdecken Sie das Töllstorp-Gebiet in Gnosjö mit MTB, Rollskiern, Schwimmen und Industriemuseum. Übernachten Sie während des Besuchs auf dem Familienhof Kämpabo außerhalb von Anderstorp.",
+    "h1": "Unterkunft nahe Gnosjö und Töllstorp",
+    "p1": "Gnosjö ist bekannt für seine Unternehmen, doch das Töllstorp-Gebiet bietet mehr als Industriegeschichte: Es gibt auch MTB-Strecken, Laufstrecken und ein Hallenbad. Übernachten Sie in Kämpabo außerhalb von Anderstorp und wählen Sie zwischen Outdoor-Aktivitäten und Museumsbesuch.",
+    "h2_1": "Industriemuseum Töllstorp – Industriegeschichte seit dem 18. Jahrhundert",
     "p2": "In Töllstorp können Sie sehen, wie aus Eisen und Metalldraht Produkte für den Alltag werden konnten. Schwanzhämmer, Drahtziehen, Drahtgewebeweberei und ältere Fertigungsmaschinen zeigen verschiedene Arbeitsschritte. Zu den hergestellten Gegenständen gehören Haarnadeln und Topfohren.",
     "p3": "Die Museumsumgebung versammelt Gebäude und Werkstätten, die die Geschichte der Entstehung der Kleinindustrie erzählen. Hier wird leichter verständlich, wie sich die kleinbäuerliche Produktion entwickelte und warum die Wasserkraft von so großer Bedeutung war.",
     "h2_2": "Planen Sie eine Führung",
@@ -199,7 +204,10 @@
     "btn2": "Lesen Sie über die Industriemuseen bei der Gemeinde Gnosjö",
     "btn3": "Lesen Sie Kämpabos Geschichte",
     "btn4": "Sehen Sie unsere Unterkünfte",
-    "btn5": "Fragen Sie nach Ihren Daten"
+    "btn5": "Fragen Sie nach Ihren Daten",
+    "h2_out": "Das Töllstorp-Gebiet – MTB, Rollski und Schwimmen",
+    "p_out1": "In Töllstorp gibt es mehrere MTB-Strecken unterschiedlicher Schwierigkeit und Laufstrecken, auf denen man laufen und Rollski fahren kann. Die Töllstorpshallen haben ein Hallenbad, wodurch sich das Gebiet für Training ebenso eignet wie für eine Familienaktivität während des Aufenthalts.",
+    "p_out2": "Zwei längere Strecken aus dem Gebiet verbinden Töllstorp außerdem mit Isaberg bzw. Store Mosse, sodass Sie mehrere Ausflugsziele kombinieren können."
   },
   "KontaktBokning": {
     "title": "Kontakt und Buchung – fragen Sie nach einer Unterkunft auf Kämpabo",
@@ -210,7 +218,7 @@
     "btn1": "Buchungsanfrage senden",
     "p3": "Eine Anfrage ist keine bestätigte Buchung.",
     "h2_1": "Hier ist Kämpabo",
-    "p4": "Kämpabo liegt auf dem Land außerhalb von Anderstorp in Småland, in der Gegend um Gnosjö und Isaberg.",
+    "p4": "Kämpabo liegt auf dem Land außerhalb von Anderstorp in Småland (Adresse: Kämpabo 2 B, 334 91 Anderstorp), nahe Gnosjö, Hestra und Isaberg.",
     "btn2": "Vergleichen Sie die Unterkünfte",
     "name": "Name",
     "email": "E-Mail",
@@ -294,5 +302,15 @@
         "badrum-tvatt": "Badezimmer mit Dusche und Waschmaschine"
       }
     }
+  },
+  "Availability": {
+    "title": "Verfügbarkeit & Buchungen",
+    "intro": "Sehen Sie sich unseren Verfügbarkeitskalender unten an. Rot markierte Daten sind bereits gebucht.",
+    "available": "Frei",
+    "booked": "Gebucht",
+    "prev": "Vorheriger Monat",
+    "next": "Nächster Monat",
+    "cabinTitle": "Verfügbarkeit",
+    "cabinSub": "Freie Termine für unsere Unterkünfte ansehen"
   }
 }

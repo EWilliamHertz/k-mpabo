@@ -51,6 +51,14 @@ export default function AttGoraPage() {
       btn: t('btn5'),
       href: '/boende-nara-gnosjo',
       img: '/images/nature.jpg' // Generic fallback since we don't have gnosjo-real.jpg
+    },
+    {
+      title: t('h2_golf'),
+      desc: t('p_golf'),
+      btn: t('btn_golf'),
+      href: 'https://www.isabergsgk.se',
+      external: true,
+      img: '/images/nature.jpg' // No dedicated golf photo yet
     }
   ];
 
@@ -71,13 +79,25 @@ export default function AttGoraPage() {
             <div className="p-8 flex flex-col flex-grow">
               <h2 className="text-2xl font-serif mb-4 text-stone-900">{dest.title}</h2>
               <p className="text-stone-600 leading-relaxed mb-8 whitespace-pre-line flex-grow">{dest.desc}</p>
-              <Link 
-                href={dest.href as any} 
-                className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group before:absolute before:inset-0"
-              >
-                {dest.btn}
-                <ArrowRight size={18} className="text-brand-primary group-hover:translate-x-1 transition-transform" />
-              </Link>
+              {'external' in dest && dest.external ? (
+                <a
+                  href={dest.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group before:absolute before:inset-0"
+                >
+                  {dest.btn}
+                  <ArrowRight size={18} className="text-brand-primary group-hover:translate-x-1 transition-transform" />
+                </a>
+              ) : (
+                <Link 
+                  href={dest.href as any} 
+                  className="inline-flex items-center justify-between bg-stone-50 border border-stone-200 text-stone-800 px-6 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium group before:absolute before:inset-0"
+                >
+                  {dest.btn}
+                  <ArrowRight size={18} className="text-brand-primary group-hover:translate-x-1 transition-transform" />
+                </Link>
+              )}
             </div>
           </div>
         ))}
@@ -86,7 +106,7 @@ export default function AttGoraPage() {
       <div className="max-w-4xl mx-auto bg-stone-50 rounded-3xl p-8 md:p-12 text-center border border-stone-200">
         {t.has('h2_6') && <h2 className="text-3xl font-serif mb-8 text-stone-900">{t('h2_6')}</h2>}
         
-        <div className="grid md:grid-cols-2 gap-8 text-left mb-12">
+        <div className="grid md:grid-cols-3 gap-8 text-left mb-12">
           <div className="flex flex-col">
             {t.has('p8') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line flex-grow">{t('p8')}</p>}
             <div>
@@ -103,6 +123,16 @@ export default function AttGoraPage() {
               {t.has('btn7') && (
                 <a href="https://gekas.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
                   {t('btn7')} <ArrowRight size={16} />
+                </a>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-col">
+            {t.has('p_zoo') && <p className="text-stone-700 leading-relaxed mb-6 whitespace-pre-line flex-grow">{t('p_zoo')}</p>}
+            <div>
+              {t.has('btn_zoo') && (
+                <a href="https://www.boraszoo.se" target="_blank" rel="noopener noreferrer" className="text-brand-primary font-medium hover:underline inline-flex items-center gap-2">
+                  {t('btn_zoo')} <ArrowRight size={16} />
                 </a>
               )}
             </div>

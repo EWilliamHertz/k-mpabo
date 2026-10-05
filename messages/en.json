@@ -9,9 +9,9 @@
   },
   "Startsida": {
     "title": "Kämpabo – Family Farm and Holiday Accommodation in Småland",
-    "meta": "Stay at a family farm in Småland outside Anderstorp. Discover Kämpabo, Lillstugan and Axel's lake with fishing and a rowing boat.",
+    "meta": "Stay at a family farm in Småland outside Anderstorp, close to Gnosjö, Hestra and Isaberg. Discover Kämpabo, Lillstugan and Axel's lake with fishing and a rowing boat.",
     "h1": "Kämpabo – Stay at a Småland Family Farm",
-    "p1": "Welcome to Kämpabo, a family farm in the Småland countryside outside Anderstorp. Here is space for both excursions and relaxing days without a full schedule.",
+    "p1": "Welcome to Kämpabo! Kämpabo is a family farm in the Småland countryside outside Anderstorp, with Gnosjö, Hestra and Isaberg within easy reach for day trips. There is also room for days without a full schedule.",
     "p2": "A rowing trip or a moment with the fishing rod can be the excursion of the day. As a guest at Kämpabo, you can borrow the rowing boat and have the opportunity to fish in the lake our family calls Axel's lake.",
     "h2_1": "Accommodation for Small and Large Groups",
     "p3": "In Lillstugan, you can choose separate accommodation for a smaller group or rent the entire house when traveling together.",
@@ -25,9 +25,9 @@
   },
   "OmKampabo": {
     "title": "About Kämpabo – The Family Farm and its History",
-    "meta": "Get to know Kämpabo outside Anderstorp: the family farm, Axel Ljungberg's Småland Leather, and the area's history of crafts and enterprise.",
+    "meta": "Get to know Kämpabo outside Anderstorp, close to Gnosjö, Hestra and Isaberg: the family farm, Axel Ljungberg's Småland Leather, and the area's history of crafts and enterprise.",
     "h1": "A Småland Farm with History",
-    "p1": "Kämpabo is a family farm in the countryside outside Anderstorp. The farm has been in the family for several generations and is located in a part of Småland where agriculture, small industry, and entrepreneurship have long lived side by side.",
+    "p1": "Kämpabo is a family farm in the Småland countryside outside Anderstorp, with Gnosjö, Hestra and Isaberg within easy reach for day trips. The farm has been in the family for several generations and is located in a part of Småland where agriculture, small industry, and entrepreneurship have long lived side by side.",
     "p2": "On the farm, Axel Ljungberg ran the leather industry Småländska Läder with around 40 employees. The industry made the farm a workplace for many people and connects Kämpabo to the area's long tradition of manufacturing and small business.",
     "h2_1": "The District behind the Gnosjö Spirit",
     "p3": "The Gnosjö Spirit is associated with enterprise and cooperation. To understand it, it is worth looking back at the work carried out by the area's waterways. During the 18th and 19th centuries, water power was used in small workshops for, among other things, forging and wire drawing.",
@@ -87,7 +87,7 @@
   },
   "AttGora": {
     "title": "Things to Do Around Kämpabo – Excursions in Småland",
-    "meta": "Plan days at Isaberg, High Chaparral, Store Mosse, or in Anderstorp and Gnosjö. Also discover Kämpabo's own lake with fishing and a rowing boat.",
+    "meta": "Plan your days at Isaberg, golf, High Chaparral, Store Mosse, or in Anderstorp and Gnosjö. Also discover Kämpabo's own lake with fishing and a rowing boat.",
     "h1": "Excursions and Experiences Around Kämpabo",
     "p1": "What do you want to fill your days with? Around Anderstorp and Gnosjö there is both outdoor life and places that tell the history of Småland. Here we have gathered excursions with different content, so you can choose according to interest and season.",
     "p2": "You don't have to go to a visitor destination to make something of the day. At Kämpabo there is the opportunity to fish in the lake the family calls Axel's lake, and as guests you can borrow the rowing boat.",
@@ -104,8 +104,8 @@
     "p6": "For the motor enthusiast there is both racing history and the opportunity to drive yourself.\nRead about Scandinavian Raceway and the go-kart track next door.",
     "btn4": "Discover Anderstorp's motor history",
     "h2_5": "Gnosjö – see how small industry emerged",
-    "p7": "Get to know the district's enterprise through two different industrial environments. Read about Töllstorp and Hyltén's and how to plan a museum visit.",
-    "btn5": "Read about Gnosjö and the industrial museums",
+    "p7": "Get to know the district's enterprise and outdoor life: the Töllstorp area with MTB trails, exercise tracks and swimming, plus the Töllstorp and Hyltén industrial museums.",
+    "btn5": "Read about Gnosjö and the Töllstorp area",
     "h2_6": "More ideas for an excursion day",
     "p8": "Vandalorum in Värnamo is an excursion destination for those interested in art and design. Check current exhibitions before the visit.",
     "btn6": "See what is shown at Vandalorum",
@@ -116,7 +116,12 @@
     "isaberg": "Isaberg Mountain Resort",
     "highChaparral": "High Chaparral",
     "storeMosse": "Store Mosse National Park",
-    "anderstorp": "Anderstorp Raceway"
+    "anderstorp": "Anderstorp Raceway",
+    "h2_golf": "Golf – Isaberg Golf Club",
+    "p_golf": "Isaberg Golf Club in Nissafors/Hestra has two 18-hole courses, the Eastern and Western courses, as well as a driving range and a short-game course with Pay & Play. It suits both experienced golfers and anyone who wants to try the game.",
+    "btn_golf": "See courses, booking and opening hours",
+    "p_zoo": "Borås Zoo is a possible full-day excursion for families with children and a complement to High Chaparral and the more local activities. Check opening hours, tickets and programme before you go.",
+    "btn_zoo": "Plan a day at Borås Zoo"
   },
   "BoendeNaraIsaberg": {
     "title": "Accommodation near Isaberg – Kämpabo in Småland",
@@ -184,11 +189,11 @@
     "btn4": "Ask about accommodation for your visit"
   },
   "BoendeNaraGnosjo": {
-    "title": "Accommodation near Gnosjö – Töllstorp and the Gnosjö Spirit",
-    "meta": "Discover Töllstorp Industrial Museum and the history behind the Gnosjö Spirit. Stay at the family farm Kämpabo outside Anderstorp during your visit.",
-    "h1": "Accommodation near Gnosjö and Töllstorp Industrial Museum",
-    "p1": "Gnosjö is known for its companies, but a visit can also be about the technology and craftsmanship that came before today's industry. Stay at Kämpabo outside Anderstorp and let an excursion to Töllstorp Industrial Museum provide a closer picture of the district.",
-    "h2_1": "Discover Töllstorp Industrial Museum",
+    "title": "Accommodation near Gnosjö – Töllstorp, outdoor life and the Gnosjö Spirit",
+    "meta": "Discover the Töllstorp area in Gnosjö with MTB, roller skiing, swimming and an industrial museum. Stay at the family farm Kämpabo outside Anderstorp during your visit.",
+    "h1": "Accommodation near Gnosjö and Töllstorp",
+    "p1": "Gnosjö is known for its companies, but the Töllstorp area offers more than industrial history: there are also MTB trails, exercise tracks and an indoor pool. Stay at Kämpabo outside Anderstorp and choose between outdoor activities and a museum visit.",
+    "h2_1": "Töllstorp Industrial Museum – industrial history from the 1700s",
     "p2": "In Töllstorp you get to see how iron and metal wire could become products for everyday life. Trip hammers, wire drawing, wire mesh weaving, and older manufacturing machines show different stages of the work. Among the objects manufactured are hairpins and pot ears.",
     "p3": "The museum environment gathers buildings and workshops that tell the story of the emergence of small industry. Here it becomes easier to understand how small-scale production developed and why water power was of such great importance.",
     "h2_2": "Plan for a Tour",
@@ -199,7 +204,10 @@
     "btn2": "Read about the industrial museums at Gnosjö Municipality",
     "btn3": "Read Kämpabo's history",
     "btn4": "See our accommodations",
-    "btn5": "Ask about your dates"
+    "btn5": "Ask about your dates",
+    "h2_out": "The Töllstorp area – MTB, roller skiing and swimming",
+    "p_out1": "Töllstorp has several MTB trails of varying difficulty and exercise tracks where you can run and roller ski. Töllstorpshallen has an indoor pool, making the area suitable for both training and a family activity during your stay.",
+    "p_out2": "Two longer trails from the area also link Töllstorp with Isaberg and Store Mosse respectively, so you can combine several excursion destinations."
   },
   "KontaktBokning": {
     "title": "Contact and Booking – ask about accommodation at Kämpabo",
@@ -210,7 +218,7 @@
     "btn1": "Send booking request",
     "p3": "A request is not a confirmed booking.",
     "h2_1": "Here is Kämpabo",
-    "p4": "Kämpabo is located in the countryside outside Anderstorp in Småland, in the area around Gnosjö and Isaberg.",
+    "p4": "Kämpabo is located in the countryside outside Anderstorp in Småland (address: Kämpabo 2 B, 334 91 Anderstorp), close to Gnosjö, Hestra and Isaberg.",
     "btn2": "Compare the accommodations",
     "name": "Name",
     "email": "Email",
@@ -294,5 +302,15 @@
         "badrum-tvatt": "Bathroom with shower and washing machine"
       }
     }
+  },
+  "Availability": {
+    "title": "Availability & Bookings",
+    "intro": "Check our availability calendar below. Dates highlighted in red are already booked.",
+    "available": "Available",
+    "booked": "Booked",
+    "prev": "Previous month",
+    "next": "Next month",
+    "cabinTitle": "Availability",
+    "cabinSub": "Check dates for our accommodations"
   }
 }
