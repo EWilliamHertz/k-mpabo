@@ -97,8 +97,6 @@ export default function OmKampaboPage() {
       {t.has('p9') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p9')}</p>}
 
       <section className="mt-20">
-        <h2 className="text-3xl md:text-4xl font-serif mb-4 text-stone-900 text-center">{tg('seasonsTitle')}</h2>
-        <p className="text-lg text-stone-600 mb-10 text-center">{tg('seasonsSubtitle')}</p>
         <PhotoGallery photos={propertyPhotos.utomhus.filter(p => p.id !== 'roddbat-sjon')} initialCount={6} />
       </section>
 
