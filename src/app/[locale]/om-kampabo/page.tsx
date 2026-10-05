@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function OmKampaboPage() {
-  const t = useTranslations('OmKampabo');
-  const tg = useTranslations('Gallery');
+  const t = await getTranslations('OmKampabo');
+  const tg = await getTranslations('Gallery');
   const farm = getPhoto('utomhus', 'hus-over-faltet');
   const boat = getPhoto('utomhus', 'roddbat-sjon');
   const mergedPhotos = await getMergedPhotos();

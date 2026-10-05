@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
@@ -19,9 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function StartsidaPage() {
-  const t = useTranslations('Startsida');
-  const tg = useTranslations('Gallery');
-  const ta = useTranslations('Availability');
+  const t = await getTranslations('Startsida');
+  const tg = await getTranslations('Gallery');
+  const ta = await getTranslations('Availability');
 
   const lake = getPhoto('utomhus', 'rodd-sjon');
   const uppe = accommodationCovers.uppe;

@@ -1,4 +1,4 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { ArrowRight } from 'lucide-react';
@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function LillstuganNerePage() {
-  const t = useTranslations('LillstuganNere');
-  const tg = useTranslations('Gallery');
+  const t = await getTranslations('LillstuganNere');
+  const tg = await getTranslations('Gallery');
   const cover = accommodationCovers.nere;
   const mergedPhotos = await getMergedPhotos();
 
