@@ -73,3 +73,27 @@ export async function deleteSiteImage(id: string, url: string) {
   
   return { success: true };
 }
+
+import { propertyPhotos } from '@/lib/photos';
+
+export async function getAllAdminImages() {
+  const dynamicImages = await prisma.siteImage.findMany({ orderBy: { createdAt: 'desc' } });
+  
+  const allImages = {
+    utomhus: [
+      ...dynamicImages.filter(img => img.category === 'utomhus').map(img => ({ ...img, isDynamic: true })),
+      ...propertyPhotos.utomhus.map(img => ({ id: img.id, url: img.src, category: 'utomhus', isDynamic: false, altSv: 'Standardbild' }))
+    ],
+    uppe: [
+      ...dynamicImages.filter(img => img.category === 'uppe').map(img => ({ ...img, isDynamic: true })),
+      ...propertyPhotos.uppe.map(img => ({ id: img.id, url: img.src, category: 'uppe', isDynamic: false, altSv: 'Standardbild' }))
+    ],
+    nere: [
+      ...dynamicImages.filter(img => img.category === 'nere').map(img => ({ ...img, isDynamic: true })),
+      ...propertyPhotos.nere.map(img => ({ id: img.id, url: img.src, category: 'nere', isDynamic: false, altSv: 'Standardbild' }))
+    ],
+    annan: dynamicImages.filter(img => img.category === 'annan').map(img => ({ ...img, isDynamic: true }))
+  };
+  
+  return allImages;
+}
