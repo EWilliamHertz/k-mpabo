@@ -31,12 +31,18 @@ export async function GET(request: Request) {
 
     for (const feed of activeFeeds) {
       const webEvents = await ical.async.fromURL(feed.url!);
+      const keptUids: string[] = [];
 
       for (const rawEvent of Object.values(webEvents)) {
         const event = rawEvent as any;
         if (event && event.type === 'VEVENT') {
           const rawUid = event.uid?.toString();
           if (!rawUid || !event.start || !event.end) continue;
+
+          // Airbnb marks closed dates (booking window, advance notice, manual blocks)
+          // as "Airbnb (Not available)". Only "Reserved" events are real guest bookings.
+          const summary = (typeof event.summary === 'object' ? event.summary?.val : event.summary)?.toString() ?? '';
+          if (/not available/i.test(summary)) continue;
           // Prefix with feed key so UIDs from different listings can't collide
           const uid = `${feed.key}:${rawUid}`;
 
@@ -48,8 +54,20 @@ export async function GET(request: Request) {
             update: { startDate, endDate, status: 'blocked', source: 'airbnb', accommodation: feed.accommodation },
             create: { startDate, endDate, status: 'blocked', source: 'airbnb', accommodation: feed.accommodation, externalReferenceId: uid },
           });
+          keptUids.push(uid);
           syncedCount++;
         }
+      }
+
+      // Remove bookings previously synced from this feed that are no longer in it
+      // (cancelled, or now filtered out as blocks)
+      if (!override) {
+        await prisma.booking.deleteMany({
+          where: {
+            source: 'airbnb',
+            externalReferenceId: { startsWith: `${feed.key}:`, notIn: keptUids },
+          },
+        });
       }
     }
 
