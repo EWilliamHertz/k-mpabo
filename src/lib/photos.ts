@@ -15,6 +15,9 @@ export type Photo = {
   width: number;
   height: number;
   blurDataURL: string;
+  dynamicAltSv?: string | null;
+  dynamicAltEn?: string | null;
+  dynamicAltDe?: string | null;
 };
 
 type RawPhoto = Omit<Photo, 'category'>;

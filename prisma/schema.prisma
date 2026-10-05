@@ -27,3 +27,13 @@ model Booking {
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
 }
+
+model SiteImage {
+  id        String   @id @default(cuid())
+  url       String
+  category  String   // 'utomhus', 'uppe', 'nere', 'annan' etc
+  altSv     String?
+  altEn     String?
+  altDe     String?
+  createdAt DateTime @default(now())
+}

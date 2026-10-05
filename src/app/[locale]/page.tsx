@@ -7,6 +7,7 @@ import AnimatedActivities from '@/components/AnimatedActivities';
 import PropertyShowcase from '@/components/PropertyShowcase';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
 import { accommodationCovers, altKey, getPhoto } from '@/lib/photos';
+import { getMergedPhotos } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function StartsidaPage() {
+export default async function StartsidaPage() {
   const t = useTranslations('Startsida');
   const tg = useTranslations('Gallery');
   const ta = useTranslations('Availability');
@@ -25,6 +26,7 @@ export default function StartsidaPage() {
   const lake = getPhoto('utomhus', 'rodd-sjon');
   const uppe = accommodationCovers.uppe;
   const nere = accommodationCovers.nere;
+  const mergedPhotos = await getMergedPhotos();
 
   return (
     <div className="flex flex-col">
@@ -92,7 +94,7 @@ export default function StartsidaPage() {
             <h2 className="text-4xl md:text-5xl font-serif mb-4 text-stone-900">{tg('title')}</h2>
             <p className="text-lg text-stone-600 max-w-2xl mx-auto">{tg('subtitle')}</p>
           </div>
-          <PropertyShowcase />
+          <PropertyShowcase photosData={mergedPhotos} />
         </div>
       </section>
 

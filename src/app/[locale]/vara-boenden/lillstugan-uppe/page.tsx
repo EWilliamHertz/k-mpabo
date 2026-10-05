@@ -5,7 +5,8 @@ import { ArrowRight } from 'lucide-react';
 import PhotoHero from '@/components/PhotoHero';
 import PhotoGallery from '@/components/PhotoGallery';
 import AvailabilityCalendar from '@/components/AvailabilityCalendar';
-import { accommodationCovers, propertyPhotos } from '@/lib/photos';
+import { accommodationCovers } from '@/lib/photos';
+import { getMergedPhotos } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -16,10 +17,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function LillstuganUppePage() {
+export default async function LillstuganUppePage() {
   const t = useTranslations('LillstuganUppe');
   const tg = useTranslations('Gallery');
   const cover = accommodationCovers.uppe;
+  const mergedPhotos = await getMergedPhotos();
 
   return (
     <div className="pb-24">
@@ -57,12 +59,12 @@ export default function LillstuganUppePage() {
 
       <section className="container mx-auto px-4 max-w-6xl mt-20">
         <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 text-stone-900">{tg('uppeTitle')}</h2>
-        <PhotoGallery photos={propertyPhotos.uppe} />
+        <PhotoGallery photos={mergedPhotos.uppe} />
       </section>
 
       <section className="container mx-auto px-4 max-w-6xl mt-20">
         <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 text-stone-900">{tg('utomhusTitle')}</h2>
-        <PhotoGallery photos={propertyPhotos.utomhus} initialCount={6} />
+        <PhotoGallery photos={mergedPhotos.utomhus} initialCount={6} />
       </section>
     </div>
   );

@@ -3,7 +3,8 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 import PhotoGallery from '@/components/PhotoGallery';
-import { altKey, getPhoto, propertyPhotos } from '@/lib/photos';
+import { altKey, getPhoto } from '@/lib/photos';
+import { getMergedPhotos } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -14,11 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function OmKampaboPage() {
+export default async function OmKampaboPage() {
   const t = useTranslations('OmKampabo');
   const tg = useTranslations('Gallery');
   const farm = getPhoto('utomhus', 'hus-over-faltet');
   const boat = getPhoto('utomhus', 'roddbat-sjon');
+  const mergedPhotos = await getMergedPhotos();
 
   return (
     <div className="container mx-auto px-4 py-24 max-w-4xl pt-32">
@@ -97,7 +99,7 @@ export default function OmKampaboPage() {
       {t.has('p9') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p9')}</p>}
 
       <section className="mt-20">
-        <PhotoGallery photos={propertyPhotos.utomhus.filter(p => p.id !== 'roddbat-sjon')} initialCount={6} />
+        <PhotoGallery photos={mergedPhotos.utomhus.filter(p => p.id !== 'roddbat-sjon')} initialCount={6} />
       </section>
 
       

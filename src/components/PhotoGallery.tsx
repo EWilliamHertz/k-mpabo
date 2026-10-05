@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Expand, X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { altKey, type Photo } from '@/lib/photos';
+import { useLocale } from 'next-intl';
 
 type LightboxProps = {
   photos: Photo[];
@@ -16,8 +17,16 @@ type LightboxProps = {
 
 /** Fullscreen photo viewer with keyboard, button and swipe navigation. */
 export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProps) {
+  const locale = useLocale();
   const t = useTranslations('Gallery');
   const [direction, setDirection] = useState(0);
+
+  const getAlt = (p: Photo) => {
+    if (locale === 'sv' && p.dynamicAltSv) return p.dynamicAltSv;
+    if (locale === 'en' && p.dynamicAltEn) return p.dynamicAltEn;
+    if (locale === 'de' && p.dynamicAltDe) return p.dynamicAltDe;
+    return t(altKey(p));
+  };
   const open = index !== null;
 
   const go = useCallback(

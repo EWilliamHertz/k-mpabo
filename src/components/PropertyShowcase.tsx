@@ -4,17 +4,19 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import PhotoGallery from '@/components/PhotoGallery';
-import { propertyPhotos, type PhotoCategory } from '@/lib/photos';
+import { type PhotoCategory, type Photo } from '@/lib/photos';
 
 type Props = {
   categories?: PhotoCategory[];
   initialCount?: number;
+  photosData: Record<PhotoCategory, Photo[]>;
 };
 
 /** Tabbed gallery switching between outdoor, upstairs and downstairs photos. */
 export default function PropertyShowcase({
   categories = ['utomhus', 'uppe', 'nere'],
   initialCount = 6,
+  photosData,
 }: Props) {
   const t = useTranslations('Gallery');
   const [active, setActive] = useState<PhotoCategory>(categories[0]);
@@ -42,7 +44,7 @@ export default function PropertyShowcase({
                 />
               )}
               <span className="relative z-10">
-                {t(cat)} <span className="opacity-60">· {propertyPhotos[cat].length}</span>
+                {t(cat)} <span className="opacity-60">· {photosData[cat].length}</span>
               </span>
             </button>
           );
@@ -50,7 +52,7 @@ export default function PropertyShowcase({
       </div>
 
       <div role="tabpanel">
-        <PhotoGallery key={active} photos={propertyPhotos[active]} initialCount={initialCount} />
+        <PhotoGallery key={active} photos={photosData[active]} initialCount={initialCount} />
       </div>
     </div>
   );

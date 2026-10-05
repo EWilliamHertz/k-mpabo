@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import PhotoHero from '@/components/PhotoHero';
 import PropertyShowcase from '@/components/PropertyShowcase';
 import { accommodationCovers } from '@/lib/photos';
+import { getMergedPhotos } from '@/lib/photos.server';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -15,10 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 }
 
-export default function HelaLillstuganPage() {
+export default async function HelaLillstuganPage() {
   const t = useTranslations('HelaLillstugan');
   const tg = useTranslations('Gallery');
   const cover = accommodationCovers.hela;
+  const mergedPhotos = await getMergedPhotos();
 
   return (
     <div className="pb-24">
@@ -62,7 +64,7 @@ export default function HelaLillstuganPage() {
 
       <section className="container mx-auto px-4 max-w-6xl mt-8">
         <h2 className="text-3xl md:text-4xl font-serif text-center mb-10 text-stone-900">{tg('title')}</h2>
-        <PropertyShowcase />
+        <PropertyShowcase photosData={mergedPhotos} />
       </section>
     </div>
   );
