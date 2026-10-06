@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { submitBooking } from '@/actions/booking';
 import { X } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 
 interface BookingModalProps {
   buttonText: string;
@@ -15,10 +16,19 @@ export default function BookingModal({ buttonText }: BookingModalProps) {
   minDate.setDate(minDate.getDate() + 5);
   const minDateString = minDate.toISOString().split('T')[0];
 
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [accValue, setAccValue] = useState('help');
   const t = useTranslations('KontaktBokning');
+
+  useEffect(() => {
+    const boende = searchParams?.get('boende');
+    if (boende === 'uppe') setAccValue('uppe');
+    else if (boende === 'nere') setAccValue('nere');
+    else if (boende === 'hela') setAccValue('hela');
+  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,6 +80,15 @@ export default function BookingModal({ buttonText }: BookingModalProps) {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5 text-left">
+                <div>
+                  <label className="block text-sm font-medium text-stone-700 mb-1">{t('accommodation')}</label>
+                  <select name="accommodation" value={accValue} onChange={(e) => setAccValue(e.target.value)} className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition bg-white">
+                    <option value="uppe">{t('acc_uppe')}</option>
+                    <option value="nere">{t('acc_nere')}</option>
+                    <option value="hela">{t('acc_hela')}</option>
+                    <option value="help">{t('acc_help')}</option>
+                  </select>
+                </div>
                 <div>
                   <label className="block text-sm font-medium text-stone-700 mb-1">{t('name')} *</label>
                   <input required name="name" type="text" className="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-brand-primary focus:border-transparent outline-none transition" />

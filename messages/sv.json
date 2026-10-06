@@ -121,7 +121,12 @@
     "p_golf": "Isaberg Golfklubb i Nissafors/Hestra har två 18-hålsbanor, Östra och Västra banan, samt drivingrange och en korthålsbana med Pay & Play. Det passar både vana golfare och den som vill prova på.",
     "btn_golf": "Se banor, bokning och öppettider",
     "p_zoo": "Borås Djurpark är en möjlig heldagsutflykt för barnfamiljer och ett komplement till High Chaparral och de mer lokala aktiviteterna. Kontrollera öppettider, biljetter och program innan ni åker.",
-    "btn_zoo": "Planera en dag på Borås Djurpark"
+    "btn_zoo": "Planera en dag på Borås Djurpark",
+    "desc_storeMosse": "Upplev södra Sveriges största myrområde.",
+    "desc_isaberg": "Skidåkning, MTB, äventyrsbana och rodel.",
+    "desc_highChaparral": "Vilda västern-parken för hela familjen.",
+    "desc_anderstorp": "Skandinaviens mest kända racerbana.",
+    "readMore": "Läs mer"
   },
   "BoendeNaraIsaberg": {
     "title": "Boende nära Isaberg – Kämpabo i Småland",
@@ -227,7 +232,13 @@
     "message": "Meddelande",
     "success": "Tack för din förfrågan! Vi återkommer så snart vi kan.",
     "checkIn": "Ankomst",
-    "checkOut": "Avresa"
+    "checkOut": "Avresa",
+    "btn_open": "Gör en bokningsförfrågan",
+    "accommodation": "Val av boende",
+    "acc_uppe": "Lillstugan uppe",
+    "acc_nere": "Lillstugan nere",
+    "acc_hela": "Hela Lillstugan",
+    "acc_help": "Jag behöver hjälp att välja"
   },
   "Gastbok": {
     "title": "Gästbok",
@@ -248,7 +259,8 @@
   "Home": {
     "title": "Välkommen till Kämpabo",
     "subtitle": "En fridfull oas i hjärtat av Småland",
-    "cta": "Se våra boenden"
+    "cta": "Se våra boenden",
+    "cta2": "Fråga om bokning"
   },
   "Gallery": {
     "title": "Kämpabo i bilder",
@@ -315,8 +327,8 @@
     "cabinTitle": "Tillgänglighet",
     "cabinSub": "Se lediga datum för våra boenden",
     "view_all": "Båda",
-    "view_stora": "Stora (nere)",
-    "view_lilla": "Lilla (uppe)",
+    "view_stora": "Lillstugan nere",
+    "view_lilla": "Lillstugan uppe",
     "partial": "Ett boende bokat"
   }
 }

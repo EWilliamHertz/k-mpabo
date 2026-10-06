@@ -121,7 +121,12 @@
     "p_golf": "Der Isaberg Golfklubb in Nissafors/Hestra hat zwei 18-Loch-Plätze, den Östlichen und den Westlichen Platz, sowie eine Driving Range und einen Kurzplatz mit Pay & Play. Er eignet sich für erfahrene Golfer ebenso wie für alle, die es ausprobieren möchten.",
     "btn_golf": "Plätze, Buchung und Öffnungszeiten ansehen",
     "p_zoo": "Der Tierpark Borås ist ein möglicher ganztägiger Ausflug für Familien mit Kindern und eine Ergänzung zu High Chaparral und den lokaleren Aktivitäten. Informieren Sie sich vor der Fahrt über Öffnungszeiten, Tickets und Programm.",
-    "btn_zoo": "Einen Tag im Tierpark Borås planen"
+    "btn_zoo": "Einen Tag im Tierpark Borås planen",
+    "desc_storeMosse": "Erleben Sie Südschwedens größtes Moorgebiet.",
+    "desc_isaberg": "Skifahren, MTB, Abenteuerparcours und Rodelbahn.",
+    "desc_highChaparral": "Der Wildwest-Park für die ganze Familie.",
+    "desc_anderstorp": "Skandinaviens berühmteste Rennstrecke.",
+    "readMore": "Mehr lesen"
   },
   "BoendeNaraIsaberg": {
     "title": "Unterkunft in der Nähe von Isaberg – Kämpabo in Småland",
@@ -227,7 +232,13 @@
     "message": "Nachricht",
     "success": "Vielen Dank für Ihre Anfrage! Wir werden uns so schnell wie möglich bei Ihnen melden.",
     "checkIn": "Anreise",
-    "checkOut": "Abreise"
+    "checkOut": "Abreise",
+    "btn_open": "Buchungsanfrage stellen",
+    "accommodation": "Wahl der Unterkunft",
+    "acc_uppe": "Lillstugan oben",
+    "acc_nere": "Lillstugan unten",
+    "acc_hela": "Ganzes Lillstugan",
+    "acc_help": "Ich brauche Hilfe bei der Auswahl"
   },
   "Gastbok": {
     "title": "Gästebuch",
@@ -248,7 +259,8 @@
   "Home": {
     "title": "Willkommen in Kämpabo",
     "subtitle": "Eine friedliche Oase im Herzen von Småland",
-    "cta": "Sehen Sie unsere Unterkünfte"
+    "cta": "Sehen Sie unsere Unterkünfte",
+    "cta2": "Buchung anfragen"
   },
   "Gallery": {
     "title": "Kämpabo in Bildern",
@@ -315,8 +327,8 @@
     "cabinTitle": "Verfügbarkeit",
     "cabinSub": "Freie Termine für unsere Unterkünfte ansehen",
     "view_all": "Beide",
-    "view_stora": "Große (unten)",
-    "view_lilla": "Kleine (oben)",
+    "view_stora": "Lillstugan unten",
+    "view_lilla": "Lillstugan oben",
     "partial": "Eine Unterkunft gebucht"
   }
 }

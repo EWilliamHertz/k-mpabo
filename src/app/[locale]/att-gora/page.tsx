@@ -63,7 +63,7 @@ export default function AttGoraPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-24 max-w-6xl pt-32">
+    <div className="container mx-auto px-4 pb-12 max-w-6xl pt-24">
       <div className="max-w-4xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-serif mb-8 text-stone-900">{t('h1')}</h1>
         {t.has('p1') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p1')}</p>}

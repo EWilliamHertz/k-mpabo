@@ -36,7 +36,7 @@ export default async function StartsidaPage({ params }: any) {
       <HeroSection slides={heroSlides} />
 
       {/* Intro + lake */}
-      <section id="valkommen" className="scroll-mt-24 container mx-auto px-4 py-24 max-w-6xl">
+      <section id="valkommen" className="scroll-mt-24 container mx-auto px-4 pb-12 max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-5xl font-serif mb-8 text-stone-900">{t('h1')}</h1>
@@ -62,7 +62,7 @@ export default async function StartsidaPage({ params }: any) {
       </section>
 
       {/* Accommodations teaser */}
-      <section className="bg-brand-primary text-white py-24">
+      <section className="bg-brand-primary text-white pb-12">
         <div className="container mx-auto px-4 max-w-6xl grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="grid grid-cols-2 gap-4 order-2 lg:order-1">
             {[uppe, nere].map(({ photo, position }, i) => (
@@ -91,11 +91,17 @@ export default async function StartsidaPage({ params }: any) {
       </section>
 
       {/* Photo gallery */}
-      <section id="bilder" className="scroll-mt-24 py-24">
+      <section id="bilder" className="scroll-mt-24 pb-12 pt-12">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-serif mb-4 text-stone-900">{tg('title')}</h2>
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto">{tg('subtitle')}</p>
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-6">{tg('subtitle')}</p>
+            <a
+              href="#bilder"
+              className="inline-flex items-center gap-2 border border-stone-300 text-stone-800 px-8 py-3 rounded-full text-lg font-medium hover:bg-stone-100 transition-colors"
+            >
+              {tg('heroCta')}
+            </a>
           </div>
           <PropertyShowcase photosData={mergedPhotos} />
         </div>
@@ -116,7 +122,7 @@ export default async function StartsidaPage({ params }: any) {
       </section>
 
       {/* Availability Calendar Section */}
-      <section className="bg-stone-50 py-24">
+      <section className="bg-stone-50 pb-12">
         <div className="container mx-auto px-4 max-w-6xl text-center">
           <h2 className="text-3xl md:text-4xl font-serif mb-6 text-stone-900">{ta('title')}</h2>
           <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-12">

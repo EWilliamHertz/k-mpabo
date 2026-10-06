@@ -17,7 +17,7 @@ export default function KontaktBokningPage() {
   const t = useTranslations('KontaktBokning');
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-24 max-w-4xl pt-24 md:pt-32 text-center min-h-[50vh] md:min-h-[70vh] flex flex-col justify-start md:justify-center">
+    <div className="container mx-auto px-4 pb-12 max-w-4xl pt-24 text-center">
       <h1 className="text-4xl md:text-6xl font-serif mb-6 md:mb-8 text-stone-900">{t('h1')}</h1>
       
       <div className="max-w-2xl mx-auto mb-8 md:mb-10">
@@ -30,7 +30,7 @@ export default function KontaktBokningPage() {
       </div>
       
       <div className="mb-16">
-        <BookingModal buttonText={t('btn1')} />
+        <BookingModal buttonText={t('btn_open')} />
       </div>
 
       <div className="bg-stone-50 p-10 rounded-3xl border border-stone-100 max-w-3xl mx-auto">

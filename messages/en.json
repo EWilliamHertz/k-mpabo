@@ -121,7 +121,12 @@
     "p_golf": "Isaberg Golf Club in Nissafors/Hestra has two 18-hole courses, the Eastern and Western courses, as well as a driving range and a short-game course with Pay & Play. It suits both experienced golfers and anyone who wants to try the game.",
     "btn_golf": "See courses, booking and opening hours",
     "p_zoo": "Borås Zoo is a possible full-day excursion for families with children and a complement to High Chaparral and the more local activities. Check opening hours, tickets and programme before you go.",
-    "btn_zoo": "Plan a day at Borås Zoo"
+    "btn_zoo": "Plan a day at Borås Zoo",
+    "desc_storeMosse": "Experience southern Sweden's largest marsh area.",
+    "desc_isaberg": "Skiing, MTB, adventure course and luge.",
+    "desc_highChaparral": "The Wild West park for the whole family.",
+    "desc_anderstorp": "Scandinavia's most famous race track.",
+    "readMore": "Read more"
   },
   "BoendeNaraIsaberg": {
     "title": "Accommodation near Isaberg – Kämpabo in Småland",
@@ -227,7 +232,13 @@
     "message": "Message",
     "success": "Thank you for your request! We will get back to you as soon as possible.",
     "checkIn": "Check-in",
-    "checkOut": "Check-out"
+    "checkOut": "Check-out",
+    "btn_open": "Make a booking request",
+    "accommodation": "Choice of accommodation",
+    "acc_uppe": "Lillstugan upstairs",
+    "acc_nere": "Lillstugan downstairs",
+    "acc_hela": "Whole Lillstugan",
+    "acc_help": "I need help choosing"
   },
   "Gastbok": {
     "title": "Guestbook",
@@ -248,7 +259,8 @@
   "Home": {
     "title": "Welcome to Kämpabo",
     "subtitle": "A peaceful oasis in the heart of Småland",
-    "cta": "See our accommodations"
+    "cta": "See our accommodations",
+    "cta2": "Ask about booking"
   },
   "Gallery": {
     "title": "Kämpabo in pictures",
@@ -315,8 +327,8 @@
     "cabinTitle": "Availability",
     "cabinSub": "Check dates for our accommodations",
     "view_all": "Both",
-    "view_stora": "Large (downstairs)",
-    "view_lilla": "Small (upstairs)",
+    "view_stora": "Lillstugan downstairs",
+    "view_lilla": "Lillstugan upstairs",
     "partial": "One unit booked"
   }
 }

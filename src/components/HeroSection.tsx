@@ -88,12 +88,12 @@ export default function HeroSection({ slides }: { slides: { photo: Photo, positi
           >
             {t('cta')} <ArrowRight size={20} />
           </Link>
-          <a
-            href="#bilder"
+          <Link
+            href="/kontakt-bokning"
             className="inline-flex items-center gap-2 border border-white/60 text-white px-8 py-4 rounded-full text-lg font-medium backdrop-blur-sm hover:bg-white/10 transition-colors"
           >
-            {tg('heroCta')}
-          </a>
+            {t('cta2')}
+          </Link>
         </div>
       </motion.div>
 

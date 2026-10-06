@@ -10,10 +10,10 @@ export default function AnimatedActivities() {
   const t = useTranslations('AttGora');
 
   const activities = [
-    { slug: 'boende-nara-store-mosse', title: t('storeMosse'), desc: 'Upplev södra Sveriges största myrområde.', img: '/images/store-mosse-real.jpg' },
-    { slug: 'boende-nara-isaberg', title: t('isaberg'), desc: 'Skidåkning, MTB, äventyrsbana och rodel.', img: '/images/isaberg-real.jpg' },
-    { slug: 'boende-nara-high-chaparral', title: t('highChaparral'), desc: 'Vilda västern-parken för hela familjen.', img: '/images/high-chaparral-real.jpg' },
-    { slug: 'boende-nara-anderstorp', title: t('anderstorp'), desc: 'Skandinaviens mest kända racerbana.', img: '/images/anderstorp-real.jpg' }
+    { slug: 'boende-nara-store-mosse', title: t('storeMosse'), desc: t('desc_storeMosse'), img: '/images/store-mosse-real.jpg' },
+    { slug: 'boende-nara-isaberg', title: t('isaberg'), desc: t('desc_isaberg'), img: '/images/isaberg-real.jpg' },
+    { slug: 'boende-nara-high-chaparral', title: t('highChaparral'), desc: t('desc_highChaparral'), img: '/images/high-chaparral-real.jpg' },
+    { slug: 'boende-nara-anderstorp', title: t('anderstorp'), desc: t('desc_anderstorp'), img: '/images/anderstorp-real.jpg' }
   ];
 
   return (
@@ -53,7 +53,7 @@ export default function AnimatedActivities() {
               <div className="p-6">
                 <p className="text-stone-600 text-sm mb-4">{act.desc}</p>
                 <div className="text-xs font-semibold uppercase tracking-widest text-brand-primary group-hover:text-stone-500 transition-colors">
-                  Läs mer →
+                  {t('readMore')} →
                 </div>
               </div>
             </Link>

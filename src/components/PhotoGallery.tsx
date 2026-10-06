@@ -55,7 +55,7 @@ export function Lightbox({ photos, index, onClose, onIndexChange }: LightboxProp
   }, [open, go, onClose]);
 
   const photo = index !== null ? photos[index] : null;
-  const alt = photo ? (photo.dynamicAltSv || 'Kämpabo') : '';
+  const alt = photo ? getAlt(photo) : '';
 
   return (
     <AnimatePresence>
@@ -147,6 +147,13 @@ type GalleryProps = {
 /** Masonry photo gallery that opens a fullscreen lightbox on click. */
 export default function PhotoGallery({ photos, initialCount }: GalleryProps) {
   const t = useTranslations('Gallery');
+  const locale = useLocale();
+  const getAlt = (p: Photo) => {
+    if (locale === 'sv' && p.dynamicAltSv) return p.dynamicAltSv;
+    if (locale === 'en' && p.dynamicAltEn) return p.dynamicAltEn;
+    if (locale === 'de' && p.dynamicAltDe) return p.dynamicAltDe;
+    return p.dynamicAltSv || 'Kämpabo';
+  };
   const [active, setActive] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
   const limit = initialCount && !expanded ? initialCount : photos.length;
@@ -156,7 +163,7 @@ export default function PhotoGallery({ photos, initialCount }: GalleryProps) {
     <>
       <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
         {visible.map((photo, i) => {
-          const alt = (photo.dynamicAltSv || 'Kämpabo');
+          const alt = getAlt(photo);
           return (
           <motion.button
             key={photo.src}

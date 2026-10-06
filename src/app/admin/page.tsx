@@ -313,8 +313,8 @@ export default function AdminPage() {
                 <label className="block text-sm font-semibold text-stone-700 mb-2">Område / Placering *</label>
                 <select name="category" required className="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl outline-none focus:ring-2 focus:ring-brand-primary focus:bg-white transition">
                   <option value="utomhus">Utomhus & Omgivning</option>
-                  <option value="nere">Stora Stugan (Nere)</option>
-                  <option value="uppe">Lilla Stugan (Uppe)</option>
+                  <option value="nere">Lillstugan nere</option>
+                  <option value="uppe">Lillstugan uppe</option>
                   <option value="annan">Övrigt</option>
                 </select>
               </div>
@@ -345,8 +345,8 @@ export default function AdminPage() {
             <h2 className="text-4xl font-serif text-stone-900 mb-10">Alla bilder på sidan</h2>
             
             {renderImageGrid(images.utomhus, "Utomhus & Omgivning", "Inga bilder utomhus ännu.", "utomhus")}
-            {renderImageGrid(images.nere, "Stora Stugan (Lillstugan Nere)", "Inga bilder uppladdade här.", "nere")}
-            {renderImageGrid(images.uppe, "Lilla Stugan (Lillstugan Uppe)", "Inga bilder uppladdade här.", "uppe")}
+            {renderImageGrid(images.nere, "Lillstugan nere", "Inga bilder uppladdade här.", "nere")}
+            {renderImageGrid(images.uppe, "Lillstugan uppe", "Inga bilder uppladdade här.", "uppe")}
             
             {images.annan && images.annan.length > 0 && (
               renderImageGrid(images.annan, "Övriga bilder", "", "annan")

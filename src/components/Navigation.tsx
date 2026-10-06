@@ -21,7 +21,7 @@ export default function Navigation() {
   }, []);
 
   // Pages that open with a full-bleed photo hero, where the bar starts transparent over the image
-  const heroPages = ['/', '/vara-boenden/lillstugan-uppe', '/vara-boenden/lillstugan-nere', '/vara-boenden/hela-lillstugan'];
+  const heroPages = ['/vara-boenden/lillstugan-uppe', '/vara-boenden/lillstugan-nere', '/vara-boenden/hela-lillstugan'];
   const overHero = !scrolled && !isOpen && heroPages.includes(pathname);
 
   const links = [

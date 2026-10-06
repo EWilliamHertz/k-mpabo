@@ -24,40 +24,29 @@ export default async function OmKampaboPage({ params }: any) {
   const locale = (await params).locale;
 
   return (
-    <div className="container mx-auto px-4 py-24 max-w-4xl pt-32">
+        <div className="container mx-auto px-4 pb-12 max-w-4xl pt-24">
       <h1 className="text-4xl md:text-5xl font-serif mb-8 text-stone-900">{t('h1')}</h1>
-      
       {t.has('p1') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p1')}</p>}
       {t.has('p2') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p2')}</p>}
-      
-      <div className="grid md:grid-cols-2 gap-6 my-12">
-        {farm && (
-          <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
-            <Image
-              src={farm.src}
-              alt={getAlt(farm, locale)}
-              fill
-              sizes="(max-width: 896px) 100vw, 440px"
-              placeholder="empty"
-              className="object-cover"
-              style={{ objectPosition: '50% 30%' }}
-            />
-          </figure>
-        )}
-        {boat && (
-          <figure className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl shadow-xl">
-            <Image
-              src={boat.src}
-              alt={getAlt(boat, locale)}
-              fill
-              sizes="(max-width: 896px) 100vw, 440px"
-              placeholder="empty"
-              className="object-cover"
-              style={{ objectPosition: '50% 50%' }}
-            />
-          </figure>
-        )}
-      </div>
+      {t.has('h2_1') && <h2 className="text-3xl font-serif mt-12 mb-6 text-stone-800">{t('h2_1')}</h2>}
+      {t.has('p3') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p3')}</p>}
+      {t.has('p4') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p4')}</p>}
+      {t.has('btn1') && (
+        <div className="mb-8">
+          <Link href="/boende-nara-gnosjo" className="inline-block bg-brand-primary text-white hover:bg-opacity-90 px-6 py-3 rounded transition">{t('btn1')}</Link>
+        </div>
+      )}
+      {t.has('p5') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p5')}</p>}
+      {t.has('btn2') && (
+        <div className="mb-8">
+          <Link href="/vara-boenden" className="inline-block bg-stone-200 text-stone-800 hover:bg-stone-300 px-6 py-3 rounded transition">{t('btn2')}</Link>
+        </div>
+      )}
+
+      <section className="mt-20">
+        <PhotoGallery photos={mergedPhotos.utomhus.filter(p => (!boat || p.id !== boat.id))} initialCount={6} />
+      </section>
+    </div>
 
       {t.has('btn1') && (
         <div className="mb-8">
