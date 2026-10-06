@@ -165,9 +165,10 @@ export default function AdminPage() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105" 
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 flex flex-col justify-between">
-                <div className="flex justify-end gap-2">
-                  <div className="flex bg-white/20 rounded-full shadow-lg mr-auto">
+              <div className="absolute inset-0 flex flex-col justify-between pointer-events-none p-3">
+                {/* Top buttons */}
+                <div className="flex justify-end gap-2 pointer-events-auto">
+                  <div className="flex bg-black/60 rounded-full shadow-lg mr-auto border border-white/20">
                     <button onClick={() => handleMoveImage(categoryId, index, 'up')} disabled={index === 0} className="p-2 text-white hover:bg-white/30 rounded-l-full disabled:opacity-30" title="Flytta bakåt (vänster)">
                       <ArrowLeft size={16} />
                     </button>
@@ -177,22 +178,23 @@ export default function AdminPage() {
                   </div>
                   <button 
                     onClick={() => handleToggleHero(img.id, img.isHero)} 
-                    className={`p-2 rounded-full shadow-lg transition-colors ${img.isHero ? 'bg-yellow-400 text-white' : 'bg-white/80 text-stone-600 hover:bg-yellow-400 hover:text-white'}`}
+                    className={`p-2 rounded-full shadow-lg transition-colors ${img.isHero ? 'bg-yellow-400 text-white' : 'bg-white shadow-md text-stone-600 hover:bg-yellow-400 hover:text-white'}`}
                     title="Visa i rullisten på startsidan (Hero)"
                   >
                     <Star size={16} />
                   </button>
                   <button 
                     onClick={() => handleToggleCover(img.id, img.category, img.isCover)} 
-                    className={`p-2 rounded-full shadow-lg transition-colors ${img.isCover ? 'bg-blue-500 text-white' : 'bg-white/80 text-stone-600 hover:bg-blue-500 hover:text-white'}`}
+                    className={`p-2 rounded-full shadow-lg transition-colors ${img.isCover ? 'bg-blue-500 text-white' : 'bg-white shadow-md text-stone-600 hover:bg-blue-500 hover:text-white'}`}
                     title="Använd som omslagsbild för detta boende"
                   >
                     <Home size={16} />
                   </button>
                 </div>
                 
-                <div className="flex justify-between items-center">
-                  <span className="bg-brand-primary text-white text-xs px-2 py-1 rounded shadow">Bild</span>
+                {/* Bottom section */}
+                <div className="flex justify-between items-end pointer-events-auto mt-auto bg-gradient-to-t from-black/80 to-transparent -mx-3 -mb-3 p-3 pt-12">
+                  <span className="bg-brand-primary/90 text-white text-xs px-2 py-1 rounded shadow-sm">Bild</span>
                   <button 
                     onClick={() => handleDelete(img.id, img.url)} 
                     className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-full shadow-lg transition-colors"
@@ -203,8 +205,8 @@ export default function AdminPage() {
                 </div>
               </div>
               
-              {/* Always visible badges if active */}
-              <div className="absolute top-2 left-2 flex flex-col gap-1 pointer-events-none">
+              {/* Badges */}
+              <div className="absolute top-14 left-2 flex flex-col gap-1 pointer-events-none z-10">
                 {img.isHero && <span className="bg-yellow-400 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">STARTSIDA</span>}
                 {img.isCover && <span className="bg-blue-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow">OMSLAGSBILD</span>}
               </div>
