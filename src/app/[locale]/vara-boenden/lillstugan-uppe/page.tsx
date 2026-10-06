@@ -40,7 +40,7 @@ export default async function LillstuganUppePage() {
             </Link>
           )}
           {t.has('btn2') && (
-            <Link href="/kontakt-bokning?boende=uppe" className="inline-flex justify-center items-center gap-2 bg-brand-primary text-white px-6 py-4 rounded-xl hover:bg-opacity-90 transition-colors font-medium shadow-sm">
+            <Link href={{ pathname: "/kontakt-bokning", query: { boende: "uppe" } }} className="inline-flex justify-center items-center gap-2 bg-brand-primary text-white px-6 py-4 rounded-xl hover:bg-opacity-90 transition-colors font-medium shadow-sm">
               {t('btn2')} <ArrowRight size={18} />
             </Link>
           )}

@@ -54,7 +54,7 @@ export default async function HelaLillstuganPage() {
               </Link>
             )}
             {t.has('btn4') && (
-              <Link href="/kontakt-bokning?boende=hela" className="inline-flex justify-center items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium shadow-sm">
+              <Link href={{ pathname: "/kontakt-bokning", query: { boende: "hela" } }} className="inline-flex justify-center items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium shadow-sm">
                 {t('btn4')} <ArrowRight size={18} />
               </Link>
             )}
