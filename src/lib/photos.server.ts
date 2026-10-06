@@ -4,7 +4,7 @@ import { Photo, PhotoCategory } from './photos';
 const prisma = new PrismaClient();
 
 export async function getMergedPhotos(): Promise<Record<PhotoCategory, Photo[]>> {
-  const images = await prisma.siteImage.findMany({ orderBy: { createdAt: 'asc' } });
+  const images = await prisma.siteImage.findMany({ orderBy: [{ orderIndex: 'asc' }, { createdAt: 'asc' }] });
   
   const merged: Record<PhotoCategory, Photo[]> = {
     utomhus: [],

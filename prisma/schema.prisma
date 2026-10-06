@@ -37,5 +37,6 @@ model SiteImage {
   altDe     String?
   isHero    Boolean  @default(false)
   isCover   Boolean  @default(false)
+  orderIndex Int     @default(0)
   createdAt DateTime @default(now())
 }

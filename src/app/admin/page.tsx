@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { loginAdmin, logoutAdmin, checkAdmin, uploadSiteImage, deleteSiteImage, getAllAdminImages, toggleHeroStatus, toggleCoverStatus } from '@/actions/admin';
+import { loginAdmin, logoutAdmin, checkAdmin, uploadSiteImage, deleteSiteImage, getAllAdminImages, toggleHeroStatus, toggleCoverStatus, updateImageOrder } from '@/actions/admin';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Upload, Trash2, LogOut, Image as ImageIcon, CheckCircle2, Star, Home } from 'lucide-react';
+import { Upload, Trash2, LogOut, Image as ImageIcon, CheckCircle2, Star, Home, ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -96,7 +96,31 @@ export default function AdminPage() {
     }
   };
 
-  const renderImageGrid = (categoryImages: any[], title: string, emptyText: string) => (
+
+  const handleMoveImage = async (categoryId: string, index: number, direction: 'up' | 'down') => {
+    const list = [...images[categoryId]];
+    if (direction === 'up' && index > 0) {
+      const temp = list[index];
+      list[index] = list[index - 1];
+      list[index - 1] = temp;
+    } else if (direction === 'down' && index < list.length - 1) {
+      const temp = list[index];
+      list[index] = list[index + 1];
+      list[index + 1] = temp;
+    } else return;
+
+    // Optimistic UI update
+    setImages({ ...images, [categoryId]: list });
+
+    try {
+      await updateImageOrder(list.map((img: any) => img.id));
+    } catch (err: any) {
+      setError(err.message || 'Kunde inte byta ordning.');
+      fetchImages(); // revert on fail
+    }
+  };
+
+  const renderImageGrid = (categoryImages: any[], title: string, emptyText: string, categoryId: string) => (
     <div className="mb-12">
       <div className="flex items-center gap-3 mb-6">
         <h3 className="text-2xl font-serif text-stone-800">{title}</h3>
@@ -123,7 +147,7 @@ export default function AdminPage() {
             }
           }}
         >
-          {categoryImages.map(img => (
+          {categoryImages.map((img, index) => (
             <motion.div 
               key={img.id} 
               variants={{
@@ -143,6 +167,14 @@ export default function AdminPage() {
               
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-3 flex flex-col justify-between">
                 <div className="flex justify-end gap-2">
+                  <div className="flex bg-white/20 rounded-full shadow-lg mr-auto">
+                    <button onClick={() => handleMoveImage(categoryId, index, 'up')} disabled={index === 0} className="p-2 text-white hover:bg-white/30 rounded-l-full disabled:opacity-30" title="Flytta bakåt (vänster)">
+                      <ArrowLeft size={16} />
+                    </button>
+                    <button onClick={() => handleMoveImage(categoryId, index, 'down')} disabled={index === categoryImages.length - 1} className="p-2 text-white hover:bg-white/30 rounded-r-full disabled:opacity-30" title="Flytta framåt (höger)">
+                      <ArrowRight size={16} />
+                    </button>
+                  </div>
                   <button 
                     onClick={() => handleToggleHero(img.id, img.isHero)} 
                     className={`p-2 rounded-full shadow-lg transition-colors ${img.isHero ? 'bg-yellow-400 text-white' : 'bg-white/80 text-stone-600 hover:bg-yellow-400 hover:text-white'}`}
@@ -310,12 +342,12 @@ export default function AdminPage() {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
             <h2 className="text-4xl font-serif text-stone-900 mb-10">Alla bilder på sidan</h2>
             
-            {renderImageGrid(images.utomhus, "Utomhus & Omgivning", "Inga bilder utomhus ännu.")}
-            {renderImageGrid(images.nere, "Stora Stugan (Lillstugan Nere)", "Inga bilder uppladdade här.")}
-            {renderImageGrid(images.uppe, "Lilla Stugan (Lillstugan Uppe)", "Inga bilder uppladdade här.")}
+            {renderImageGrid(images.utomhus, "Utomhus & Omgivning", "Inga bilder utomhus ännu.", "utomhus")}
+            {renderImageGrid(images.nere, "Stora Stugan (Lillstugan Nere)", "Inga bilder uppladdade här.", "nere")}
+            {renderImageGrid(images.uppe, "Lilla Stugan (Lillstugan Uppe)", "Inga bilder uppladdade här.", "uppe")}
             
             {images.annan && images.annan.length > 0 && (
-              renderImageGrid(images.annan, "Övriga bilder", "")
+              renderImageGrid(images.annan, "Övriga bilder", "", "annan")
             )}
           </motion.div>
         </div>

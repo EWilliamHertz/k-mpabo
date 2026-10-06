@@ -74,7 +74,7 @@ export async function deleteSiteImage(id: string, url: string) {
 }
 
 export async function getAllAdminImages() {
-  const dynamicImages = await prisma.siteImage.findMany({ orderBy: { createdAt: 'desc' } });
+  const dynamicImages = await prisma.siteImage.findMany({ orderBy: [{ orderIndex: 'asc' }, { createdAt: 'asc' }] });
   
   const allImages = {
     utomhus: dynamicImages.filter(img => img.category === 'utomhus').map(img => ({ ...img, isDynamic: true })),
@@ -104,5 +104,19 @@ export async function toggleCoverStatus(id: string, category: string, isCover: b
   }
   
   await prisma.siteImage.update({ where: { id }, data: { isCover } });
+  return { success: true };
+}
+
+export async function updateImageOrder(orderedIds: string[]) {
+  if (!(await checkAdmin())) throw new Error("Unauthorized");
+  
+  const updates = orderedIds.map((id, index) => 
+    prisma.siteImage.update({
+      where: { id },
+      data: { orderIndex: index }
+    })
+  );
+  
+  await prisma.$transaction(updates);
   return { success: true };
 }
