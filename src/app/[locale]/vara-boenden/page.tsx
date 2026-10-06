@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import Image from 'next/image';
