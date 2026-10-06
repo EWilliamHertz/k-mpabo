@@ -27,11 +27,7 @@ export default function BoendeNaraIsabergPage() {
       {t.has('h2_1') && <h2 className="text-3xl font-serif mt-12 mb-6 text-stone-800">{t('h2_1')}</h2>}
       {t.has('p3') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p3')}</p>}
       {t.has('p4') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p4')}</p>}
-      {t.has('btn2') && (
-        <div className="mb-8">
-          <a href="https://www.isaberg.com/sv/aktiviteter/cykla/" target="_blank" rel="noopener noreferrer" className="inline-block bg-stone-200 text-stone-800 hover:bg-stone-300 px-6 py-3 rounded transition">{t('btn2')}</a>
-        </div>
-      )}
+      
       {t.has('h2_2') && <h2 className="text-3xl font-serif mt-12 mb-6 text-stone-800">{t('h2_2')}</h2>}
       {t.has('p5') && <p className="text-lg text-stone-700 leading-relaxed mb-6 whitespace-pre-line">{t('p5')}</p>}
       {t.has('btn3') && (
