@@ -26,6 +26,8 @@ export async function getMergedPhotos(): Promise<Record<PhotoCategory, Photo[]>>
         dynamicAltSv: img.altSv,
         dynamicAltEn: img.altEn,
         dynamicAltDe: img.altDe,
+        isHero: img.isHero,
+        isCover: img.isCover,
       });
     }
   }
@@ -47,15 +49,25 @@ export function getAlt(photo: Photo | null | undefined, locale: string, fallback
 export async function getAccommodationCovers() {
   const merged = await getMergedPhotos();
   
+  const getCover = (cat: PhotoCategory, keyword: string) => {
+    return merged[cat].find(p => p.isCover) || getPhoto(merged, cat, keyword) || merged[cat]?.[0];
+  };
+  
   return {
-    uppe: { photo: getPhoto(merged, 'uppe', 'vardagsrum') || merged.uppe[0], position: '50% 60%' },
-    nere: { photo: getPhoto(merged, 'nere', 'vardagsrum') || merged.nere[0], position: '50% 55%' },
-    hela: { photo: getPhoto(merged, 'utomhus', 'uppfart-sommar') || merged.utomhus[0], position: '50% 55%' },
+    uppe: { photo: getCover('uppe', 'vardagsrum'), position: '50% 60%' },
+    nere: { photo: getCover('nere', 'vardagsrum'), position: '50% 55%' },
+    hela: { photo: getCover('utomhus', 'uppfart-sommar'), position: '50% 55%' },
   };
 }
 
 export async function getHeroSlides() {
   const merged = await getMergedPhotos();
+  
+  const allHero = Object.values(merged).flat().filter(p => p.isHero).map(photo => ({ photo, position: '50% 50%' }));
+  
+  if (allHero.length > 0) return allHero;
+  
+  // Fallback
   return [
     { photo: getPhoto(merged, 'utomhus', 'gard-vallmo'), position: '50% 30%' },
     { photo: getPhoto(merged, 'utomhus', 'uppfart-sommar'), position: '50% 55%' },

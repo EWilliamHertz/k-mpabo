@@ -35,5 +35,7 @@ model SiteImage {
   altSv     String?
   altEn     String?
   altDe     String?
+  isHero    Boolean  @default(false)
+  isCover   Boolean  @default(false)
   createdAt DateTime @default(now())
 }

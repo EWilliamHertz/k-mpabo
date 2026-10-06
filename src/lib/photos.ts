@@ -10,4 +10,6 @@ export type Photo = {
   dynamicAltSv?: string | null;
   dynamicAltEn?: string | null;
   dynamicAltDe?: string | null;
+  isHero?: boolean;
+  isCover?: boolean;
 };

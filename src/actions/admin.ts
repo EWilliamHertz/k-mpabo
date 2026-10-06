@@ -85,3 +85,24 @@ export async function getAllAdminImages() {
   
   return allImages;
 }
+
+export async function toggleHeroStatus(id: string, isHero: boolean) {
+  if (!(await checkAdmin())) throw new Error("Unauthorized");
+  await prisma.siteImage.update({ where: { id }, data: { isHero } });
+  return { success: true };
+}
+
+export async function toggleCoverStatus(id: string, category: string, isCover: boolean) {
+  if (!(await checkAdmin())) throw new Error("Unauthorized");
+  
+  if (isCover) {
+    // Only one cover per category
+    await prisma.siteImage.updateMany({
+      where: { category },
+      data: { isCover: false }
+    });
+  }
+  
+  await prisma.siteImage.update({ where: { id }, data: { isCover } });
+  return { success: true };
+}
