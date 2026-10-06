@@ -4,6 +4,14 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+    ],
+  },
   allowedDevOrigins: [
     '3000-cs-553118797525-default.cs-europe-west4-pear.cloudshell.dev',
     'kampabo-dev.loca.lt'
